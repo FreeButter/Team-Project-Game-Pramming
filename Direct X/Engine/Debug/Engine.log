@@ -1,4 +1,4 @@
-﻿Build started 19/09/2016 3:50:19 p.m..
+﻿Build started 20/09/2016 10:35:41 a.m..
      1>Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Direct X\Engine\Engine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt d3dclass.cpp graphicsclass.cpp inputclass.cpp main.cpp systemclass.cpp
@@ -238,9 +238,10 @@
          Debug\inputclass.obj
          Debug\main.obj
          Debug\systemclass.obj
+         LINK : C:\Users\USER\Documents\GitHub\Team-Project-GP\Direct X\Debug\Engine.exe not found or not built by the last incremental link; performing full link
          Engine.vcxproj -> C:\Users\USER\Documents\GitHub\Team-Project-GP\Direct X\Debug\Engine.exe
      1>Done Building Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Direct X\Engine\Engine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:09.93
+Time Elapsed 00:00:05.42
