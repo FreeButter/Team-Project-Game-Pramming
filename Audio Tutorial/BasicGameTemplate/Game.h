@@ -72,4 +72,7 @@ private:
 	float nightVolume;
 	float nightSlide;
 
+	// Compiled Source of all audio files
+	std::unique_ptr<DirectX::WaveBank> m_sounds;
+
 };

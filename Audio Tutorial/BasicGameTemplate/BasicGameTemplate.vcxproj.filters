@@ -57,4 +57,9 @@
       <Filter>Assets</Filter>
     </Media>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sounds\sounds.xwb">
+      <Filter>Assets</Filter>
+    </None>
+  </ItemGroup>
 </Project>

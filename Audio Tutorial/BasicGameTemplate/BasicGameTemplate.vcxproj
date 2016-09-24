@@ -193,6 +193,9 @@
     <Media Include="Assets\Sounds\Explo4.wav" />
     <Media Include="Assets\Sounds\NightAmbienceSimple_02.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sounds\sounds.xwb" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
