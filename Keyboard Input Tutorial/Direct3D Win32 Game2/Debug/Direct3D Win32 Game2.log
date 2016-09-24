@@ -1,23 +1,32 @@
-﻿Build started 23/09/2016 12:36:42 p.m..
-     1>Project "C:\Users\USER\Desktop\Direct3D Win32 Game2\Direct3D Win32 Game2\Direct3D Win32 Game2.vcxproj" on node 2 (Build target(s)).
+﻿Build started 24/09/2016 12:22:06 a.m..
+     1>Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\Direct3D Win32 Game2\Direct3D Win32 Game2.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Desktop\Direct3D Win32 Game2\\DirectXTK\Inc" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"Debug\Direct3D Win32 Game2.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\\DirectXTK\Inc" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Yc"pch.h" /Fp"Debug\Direct3D Win32 Game2.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt pch.cpp
+         pch.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\\DirectXTK\Inc" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"Debug\Direct3D Win32 Game2.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt DeviceResources.cpp Game.cpp Main.cpp
+         Main.cpp
          Game.cpp
-     1>c:\users\user\desktop\direct3d win32 game2\direct3d win32 game2\game.cpp(276): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
-     1>c:\users\user\desktop\direct3d win32 game2\direct3d win32 game2\game.cpp(276): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\user\desktop\direct3d win32 game2\direct3d win32 game2\game.cpp(277): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
-     1>c:\users\user\desktop\direct3d win32 game2\direct3d win32 game2\game.cpp(277): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>c:\users\user\documents\github\team-project-gp\keyboard input tutorial\direct3d win32 game2\game.cpp(276): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>c:\users\user\documents\github\team-project-gp\keyboard input tutorial\direct3d win32 game2\game.cpp(276): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>c:\users\user\documents\github\team-project-gp\keyboard input tutorial\direct3d win32 game2\game.cpp(277): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>c:\users\user\documents\github\team-project-gp\keyboard input tutorial\direct3d win32 game2\game.cpp(277): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+         DeviceResources.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\resource.res" resource.rc 
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /nologo /fo"Debug\Direct3D Win32 Game2.exe.embed.manifest.res" "Debug\Direct3D Win32 Game2_manifest.rc" 
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\USER\Desktop\Direct3D Win32 Game2\Debug\Direct3D Win32 Game2.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" d3d11.lib dxgi.lib dxguid.lib uuid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib odbc32.lib odbccp32.lib PhysX3CHECKED_x86.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:settings.manifest /DEBUG /PDB:"C:\Users\USER\Desktop\Direct3D Win32 Game2\Debug\Direct3D Win32 Game2.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\USER\Desktop\Direct3D Win32 Game2\Debug\Direct3D Win32 Game2.lib" /MACHINE:X86 Debug\resource.res
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\Debug\Direct3D Win32 Game2.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" d3d11.lib dxgi.lib dxguid.lib uuid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib odbc32.lib odbccp32.lib PhysX3CHECKED_x86.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:settings.manifest /DEBUG /PDB:"C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\Debug\Direct3D Win32 Game2.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\Debug\Direct3D Win32 Game2.lib" /MACHINE:X86 Debug\resource.res
          Debug\DeviceResources.obj
          Debug\Game.obj
          Debug\Main.obj
          Debug\pch.obj
-         "C:\Users\USER\Desktop\Direct3D Win32 Game2\DirectXTK\Bin\Desktop_2013\Win32\Debug\DirectXTK.lib"
-            Creating library C:\Users\USER\Desktop\Direct3D Win32 Game2\Debug\Direct3D Win32 Game2.lib and object C:\Users\USER\Desktop\Direct3D Win32 Game2\Debug\Direct3D Win32 Game2.exp
-         Direct3D Win32 Game2.vcxproj -> C:\Users\USER\Desktop\Direct3D Win32 Game2\Debug\Direct3D Win32 Game2.exe
-     1>Done Building Project "C:\Users\USER\Desktop\Direct3D Win32 Game2\Direct3D Win32 Game2\Direct3D Win32 Game2.vcxproj" (Build target(s)).
+         "C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\DirectXTK\Bin\Desktop_2013\Win32\Debug\DirectXTK.lib"
+            Creating library C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\Debug\Direct3D Win32 Game2.lib and object C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\Debug\Direct3D Win32 Game2.exp
+         Direct3D Win32 Game2.vcxproj -> C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\Debug\Direct3D Win32 Game2.exe
+     1>Done Building Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Keyboard Input Tutorial\Direct3D Win32 Game2\Direct3D Win32 Game2.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.53
+Time Elapsed 00:00:04.96
