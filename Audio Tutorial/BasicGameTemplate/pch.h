@@ -42,6 +42,8 @@
 
 #include <stdio.h>
 
+#include <random>
+
 #include "Audio.h"
 #include "CommonStates.h"
 #include "DDSTextureLoader.h"

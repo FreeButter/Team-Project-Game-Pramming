@@ -40,4 +40,21 @@
       <Filter>Assets</Filter>
     </Manifest>
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\Sounds\NightAmbienceSimple_02.wav">
+      <Filter>Assets</Filter>
+    </Media>
+    <Media Include="Assets\Sounds\Explo1.wav">
+      <Filter>Assets</Filter>
+    </Media>
+    <Media Include="Assets\Sounds\Explo2.wav">
+      <Filter>Assets</Filter>
+    </Media>
+    <Media Include="Assets\Sounds\Explo3.wav">
+      <Filter>Assets</Filter>
+    </Media>
+    <Media Include="Assets\Sounds\Explo4.wav">
+      <Filter>Assets</Filter>
+    </Media>
+  </ItemGroup>
 </Project>

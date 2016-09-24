@@ -47,6 +47,10 @@ void Game::Initialize(HWND window, int width, int height)
 	#endif
 		m_audEngine = std::make_unique<AudioEngine>(eflags);
 		m_retryAudio = false;
+
+	m_explode = std::make_unique<SoundEffect>(m_audEngine.get(), L"Assets/Sounds/explo1.wav");
+	m_ambient = std::make_unique<SoundEffect>(m_audEngine.get(),
+		L"Assets/Sounds/NightAmbienceSimple_02.wav");
 }
 
 #pragma region Frame Update

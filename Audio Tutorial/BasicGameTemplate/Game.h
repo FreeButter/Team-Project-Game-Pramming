@@ -60,5 +60,12 @@ private:
     // Rendering loop timer.
     DX::StepTimer                           m_timer;
 
+	// Sound Pointers
+	std::unique_ptr<DirectX::SoundEffect> m_explode;
+	std::unique_ptr<DirectX::SoundEffect> m_ambient;
+
+	std::unique_ptr<std::mt19937> m_random;
+	float explodeDelay
+
 
 };
