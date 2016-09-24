@@ -65,7 +65,7 @@ private:
 	std::unique_ptr<DirectX::SoundEffect> m_ambient;
 
 	std::unique_ptr<std::mt19937> m_random;
-	float explodeDelay
+	float explodeDelay;
 
 
 };

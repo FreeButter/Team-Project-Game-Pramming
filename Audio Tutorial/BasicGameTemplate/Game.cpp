@@ -51,6 +51,11 @@ void Game::Initialize(HWND window, int width, int height)
 	m_explode = std::make_unique<SoundEffect>(m_audEngine.get(), L"Assets/Sounds/explo1.wav");
 	m_ambient = std::make_unique<SoundEffect>(m_audEngine.get(),
 		L"Assets/Sounds/NightAmbienceSimple_02.wav");
+
+	std::random_device rd;
+	m_random = std::make_unique<std::mt19937>(rd());
+
+	explodeDelay = 2.f;
 }
 
 #pragma region Frame Update
@@ -85,6 +90,16 @@ void Game::Update(DX::StepTimer const& timer)
 		{
 			m_retryAudio = true;
 		}
+	}
+
+	// Play Sounds
+	explodeDelay -= elapsedTime;
+	if (explodeDelay < 0.f)
+	{
+		m_explode->Play();
+
+		std::uniform_real_distribution<float> dist(1.f, 10.f);
+		explodeDelay = dist(*m_random);
 	}
 }
 #pragma endregion
@@ -159,6 +174,7 @@ void Game::OnResuming()
 
     // TODO: Game is being power-resumed (or returning from minimize).
 	m_audEngine->Resume();
+	explodeDelay = 2.f;
 }
 
 void Game::OnWindowSizeChanged(int width, int height)
