@@ -1,4 +1,4 @@
-﻿Build started 9/24/2016 4:35:18 PM.
+﻿Build started 9/24/2016 4:45:24 PM.
      1>Project "C:\Users\xmigglex\Desktop\Team-Project-GP\Audio Tutorial\BasicGameTemplate\BasicGameTemplate.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\Visual Studio\VC\bin\CL.exe /c /I"C:\Users\xmigglex\Desktop\Team-Project-GP\Audio Tutorial\\DirectXTK\Inc" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"Debug\BasicGameTemplate.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp Main.cpp
@@ -20,4 +20,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.06
+Time Elapsed 00:00:01.32

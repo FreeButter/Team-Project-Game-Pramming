@@ -61,10 +61,13 @@ void Game::Initialize(HWND window, int width, int height)
 
 	explodeDelay = 2.f;
 
-
 	// Initializing looping sound
 	m_nightLoop = m_ambient->CreateInstance();
 	m_nightLoop->Play(true);
+
+	// Setting volume for sounds
+	nightVolume = 1.f;
+	nightSlide = -0.1f;
 }
 
 #pragma region Frame Update
@@ -85,6 +88,22 @@ void Game::Update(DX::StepTimer const& timer)
     float elapsedTime = float(timer.GetElapsedSeconds());
 
     // TODO: Add your game logic here.
+
+	// Setting Volume on Sounds
+	nightVolume += elapsedTime * nightSlide;
+	if (nightVolume < 0.f)
+	{
+		nightVolume = 0.f;
+		nightSlide = -nightSlide;
+	}
+	else if (nightVolume > 1.f)
+	{
+		nightVolume = 1.f;
+		nightSlide = -nightSlide;
+	}
+	m_nightLoop->SetVolume(nightVolume);
+
+	// Re setting Audio when stopped
 	if (m_retryAudio)
 	{
 		m_retryAudio = false;

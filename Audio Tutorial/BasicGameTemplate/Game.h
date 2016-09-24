@@ -69,5 +69,7 @@ private:
 
 	std::unique_ptr<DirectX::SoundEffectInstance> m_nightLoop;
 
+	float nightVolume;
+	float nightSlide;
 
 };
