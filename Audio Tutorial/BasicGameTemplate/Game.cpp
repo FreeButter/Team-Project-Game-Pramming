@@ -21,6 +21,8 @@ Game::~Game()
 	{
 		m_audEngine->Suspend();
 	}
+
+	m_nightLoop.reset();
 }
 
 // Initialize the Direct3D resources required to run.
@@ -41,6 +43,7 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
 
+	// initializing Audio Engine
 		AUDIO_ENGINE_FLAGS eflags = AudioEngine_Default;
 	#ifdef _DEBUG
 		eflags = eflags | AudioEngine_Debug;
@@ -48,6 +51,7 @@ void Game::Initialize(HWND window, int width, int height)
 		m_audEngine = std::make_unique<AudioEngine>(eflags);
 		m_retryAudio = false;
 
+	// Initializing Sounds pointer Objects
 	m_explode = std::make_unique<SoundEffect>(m_audEngine.get(), L"Assets/Sounds/explo1.wav");
 	m_ambient = std::make_unique<SoundEffect>(m_audEngine.get(),
 		L"Assets/Sounds/NightAmbienceSimple_02.wav");
@@ -56,6 +60,11 @@ void Game::Initialize(HWND window, int width, int height)
 	m_random = std::make_unique<std::mt19937>(rd());
 
 	explodeDelay = 2.f;
+
+
+	// Initializing looping sound
+	m_nightLoop = m_ambient->CreateInstance();
+	m_nightLoop->Play(true);
 }
 
 #pragma region Frame Update
@@ -82,6 +91,8 @@ void Game::Update(DX::StepTimer const& timer)
 		if (m_audEngine->Reset())
 		{
 			// TODO: restart any looped sounds here
+			if (m_nightLoop)
+				m_nightLoop->Play(true);
 		}
 	}
 	else if (!m_audEngine->Update())
@@ -89,6 +100,7 @@ void Game::Update(DX::StepTimer const& timer)
 		if (m_audEngine->IsCriticalError())
 		{
 			m_retryAudio = true;
+
 		}
 	}
 
