@@ -1,0 +1,135 @@
+﻿Build started 27/09/2016 2:41:34 p.m..
+     1>Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\ModelLoadingTutorial\DirectXTK\DirectXTK_Desktop_2013.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\ModelLoadingTutorial\DirectXTK\Inc" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W4 /WX- /Od /Oy- /D _WIN32_WINNT=0x0600 /D _WIN7_PLATFORM_UPDATE /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Yc"pch.h" /Fp"Bin\Desktop_2013\Win32\Debug\DirectXTK.pch" /Fo"Bin\Desktop_2013\Win32\Debug\\" /Fd"Bin\Desktop_2013\Win32\Debug\DirectXTK.pdb" /Gd /TP /analyze- /errorReport:prompt Src\pch.cpp
+         pch.cpp
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(59): warning C4005: 'D2DERR_WRONG_STATE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50511) : see previous definition of 'D2DERR_WRONG_STATE'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(64): warning C4005: 'D2DERR_NOT_INITIALIZED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50520) : see previous definition of 'D2DERR_NOT_INITIALIZED'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(69): warning C4005: 'D2DERR_UNSUPPORTED_OPERATION' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50529) : see previous definition of 'D2DERR_UNSUPPORTED_OPERATION'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(74): warning C4005: 'D2DERR_SCANNER_FAILED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50538) : see previous definition of 'D2DERR_SCANNER_FAILED'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(79): warning C4005: 'D2DERR_SCREEN_ACCESS_DENIED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50547) : see previous definition of 'D2DERR_SCREEN_ACCESS_DENIED'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(84): warning C4005: 'D2DERR_DISPLAY_STATE_INVALID' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50556) : see previous definition of 'D2DERR_DISPLAY_STATE_INVALID'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(89): warning C4005: 'D2DERR_ZERO_VECTOR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50565) : see previous definition of 'D2DERR_ZERO_VECTOR'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(97): warning C4005: 'D2DERR_INTERNAL_ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50574) : see previous definition of 'D2DERR_INTERNAL_ERROR'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(103): warning C4005: 'D2DERR_DISPLAY_FORMAT_NOT_SUPPORTED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50583) : see previous definition of 'D2DERR_DISPLAY_FORMAT_NOT_SUPPORTED'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(108): warning C4005: 'D2DERR_INVALID_CALL' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50592) : see previous definition of 'D2DERR_INVALID_CALL'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(113): warning C4005: 'D2DERR_NO_HARDWARE_DEVICE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50601) : see previous definition of 'D2DERR_NO_HARDWARE_DEVICE'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(119): warning C4005: 'D2DERR_RECREATE_TARGET' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50610) : see previous definition of 'D2DERR_RECREATE_TARGET'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(124): warning C4005: 'D2DERR_TOO_MANY_SHADER_ELEMENTS' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50619) : see previous definition of 'D2DERR_TOO_MANY_SHADER_ELEMENTS'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(129): warning C4005: 'D2DERR_SHADER_COMPILE_FAILED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50628) : see previous definition of 'D2DERR_SHADER_COMPILE_FAILED'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(134): warning C4005: 'D2DERR_MAX_TEXTURE_SIZE_EXCEEDED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50637) : see previous definition of 'D2DERR_MAX_TEXTURE_SIZE_EXCEEDED'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(139): warning C4005: 'D2DERR_UNSUPPORTED_VERSION' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50646) : see previous definition of 'D2DERR_UNSUPPORTED_VERSION'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(144): warning C4005: 'D2DERR_BAD_NUMBER' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50655) : see previous definition of 'D2DERR_BAD_NUMBER'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(149): warning C4005: 'D2DERR_WRONG_FACTORY' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50664) : see previous definition of 'D2DERR_WRONG_FACTORY'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(154): warning C4005: 'D2DERR_LAYER_ALREADY_IN_USE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50673) : see previous definition of 'D2DERR_LAYER_ALREADY_IN_USE'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(159): warning C4005: 'D2DERR_POP_CALL_DID_NOT_MATCH_PUSH' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50682) : see previous definition of 'D2DERR_POP_CALL_DID_NOT_MATCH_PUSH'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(164): warning C4005: 'D2DERR_WRONG_RESOURCE_DOMAIN' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50691) : see previous definition of 'D2DERR_WRONG_RESOURCE_DOMAIN'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(169): warning C4005: 'D2DERR_PUSH_POP_UNBALANCED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50700) : see previous definition of 'D2DERR_PUSH_POP_UNBALANCED'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(174): warning C4005: 'D2DERR_RENDER_TARGET_HAS_LAYER_OR_CLIPRECT' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50709) : see previous definition of 'D2DERR_RENDER_TARGET_HAS_LAYER_OR_CLIPRECT'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(179): warning C4005: 'D2DERR_INCOMPATIBLE_BRUSH_TYPES' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50718) : see previous definition of 'D2DERR_INCOMPATIBLE_BRUSH_TYPES'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(184): warning C4005: 'D2DERR_WIN32_ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50727) : see previous definition of 'D2DERR_WIN32_ERROR'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(189): warning C4005: 'D2DERR_TARGET_NOT_GDI_COMPATIBLE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50736) : see previous definition of 'D2DERR_TARGET_NOT_GDI_COMPATIBLE'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(194): warning C4005: 'D2DERR_TEXT_EFFECT_IS_WRONG_TYPE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50745) : see previous definition of 'D2DERR_TEXT_EFFECT_IS_WRONG_TYPE'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(201): warning C4005: 'D2DERR_TEXT_RENDERER_NOT_RELEASED' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50754) : see previous definition of 'D2DERR_TEXT_RENDERER_NOT_RELEASED'
+     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d2derr.h(206): warning C4005: 'D2DERR_EXCEEDS_MAX_BITMAP_SIZE' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50763) : see previous definition of 'D2DERR_EXCEEDS_MAX_BITMAP_SIZE'
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\ModelLoadingTutorial\DirectXTK\Inc" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W4 /WX- /Od /Oy- /D _WIN32_WINNT=0x0600 /D _WIN7_PLATFORM_UPDATE /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"Bin\Desktop_2013\Win32\Debug\DirectXTK.pch" /Fo"Bin\Desktop_2013\Win32\Debug\\" /Fd"Bin\Desktop_2013\Win32\Debug\DirectXTK.pdb" /Gd /TP /analyze- /errorReport:prompt Src\AlphaTestEffect.cpp Src\BasicEffect.cpp Src\CommonStates.cpp Src\DDSTextureLoader.cpp Src\DGSLEffect.cpp Src\DGSLEffectFactory.cpp Src\DualTextureEffect.cpp Src\BinaryReader.cpp Src\EffectCommon.cpp Src\EffectFactory.cpp Src\EnvironmentMapEffect.cpp Src\GamePad.cpp Src\GeometricPrimitive.cpp Src\Geometry.cpp Src\GraphicsMemory.cpp Src\Keyboard.cpp Src\Model.cpp Src\ModelLoadCMO.cpp Src\ModelLoadSDKMESH.cpp Src\ModelLoadVBO.cpp Src\Mouse.cpp Src\NormalMapEffect.cpp Src\ScreenGrab.cpp Src\SimpleMath.cpp Src\SkinnedEffect.cpp Src\SpriteBatch.cpp Src\PrimitiveBatch.cpp Src\SpriteFont.cpp Src\VertexTypes.cpp Src\WICTextureLoader.cpp
+         WICTextureLoader.cpp
+         VertexTypes.cpp
+         SpriteFont.cpp
+         PrimitiveBatch.cpp
+         SpriteBatch.cpp
+         SkinnedEffect.cpp
+         SimpleMath.cpp
+         ScreenGrab.cpp
+         NormalMapEffect.cpp
+         Mouse.cpp
+         ModelLoadVBO.cpp
+         ModelLoadSDKMESH.cpp
+         ModelLoadCMO.cpp
+         Model.cpp
+         Keyboard.cpp
+         GraphicsMemory.cpp
+         Geometry.cpp
+         GeometricPrimitive.cpp
+         GamePad.cpp
+         EnvironmentMapEffect.cpp
+         Generating Code...
+         Compiling...
+         EffectFactory.cpp
+         EffectCommon.cpp
+         BinaryReader.cpp
+         DualTextureEffect.cpp
+         DGSLEffectFactory.cpp
+         DGSLEffect.cpp
+         DDSTextureLoader.cpp
+         CommonStates.cpp
+         BasicEffect.cpp
+         AlphaTestEffect.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"Bin\Desktop_2013\Win32\Debug\DirectXTK.lib" /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" /NOLOGO Bin\Desktop_2013\Win32\Debug\AlphaTestEffect.obj
+         Bin\Desktop_2013\Win32\Debug\BasicEffect.obj
+         Bin\Desktop_2013\Win32\Debug\CommonStates.obj
+         Bin\Desktop_2013\Win32\Debug\DDSTextureLoader.obj
+         Bin\Desktop_2013\Win32\Debug\DGSLEffect.obj
+         Bin\Desktop_2013\Win32\Debug\DGSLEffectFactory.obj
+         Bin\Desktop_2013\Win32\Debug\DualTextureEffect.obj
+         Bin\Desktop_2013\Win32\Debug\BinaryReader.obj
+         Bin\Desktop_2013\Win32\Debug\EffectCommon.obj
+         Bin\Desktop_2013\Win32\Debug\EffectFactory.obj
+         Bin\Desktop_2013\Win32\Debug\EnvironmentMapEffect.obj
+         Bin\Desktop_2013\Win32\Debug\GamePad.obj
+         Bin\Desktop_2013\Win32\Debug\GeometricPrimitive.obj
+         Bin\Desktop_2013\Win32\Debug\Geometry.obj
+         Bin\Desktop_2013\Win32\Debug\GraphicsMemory.obj
+         Bin\Desktop_2013\Win32\Debug\Keyboard.obj
+         Bin\Desktop_2013\Win32\Debug\Model.obj
+         Bin\Desktop_2013\Win32\Debug\ModelLoadCMO.obj
+         Bin\Desktop_2013\Win32\Debug\ModelLoadSDKMESH.obj
+         Bin\Desktop_2013\Win32\Debug\ModelLoadVBO.obj
+         Bin\Desktop_2013\Win32\Debug\Mouse.obj
+         Bin\Desktop_2013\Win32\Debug\NormalMapEffect.obj
+         Bin\Desktop_2013\Win32\Debug\pch.obj
+         Bin\Desktop_2013\Win32\Debug\ScreenGrab.obj
+         Bin\Desktop_2013\Win32\Debug\SimpleMath.obj
+         Bin\Desktop_2013\Win32\Debug\SkinnedEffect.obj
+         Bin\Desktop_2013\Win32\Debug\SpriteBatch.obj
+         Bin\Desktop_2013\Win32\Debug\PrimitiveBatch.obj
+         Bin\Desktop_2013\Win32\Debug\SpriteFont.obj
+         Bin\Desktop_2013\Win32\Debug\VertexTypes.obj
+         Bin\Desktop_2013\Win32\Debug\WICTextureLoader.obj
+         DirectXTK_Desktop_2013.vcxproj -> C:\Users\USER\Documents\GitHub\Team-Project-GP\ModelLoadingTutorial\DirectXTK\Bin\Desktop_2013\Win32\Debug\DirectXTK.lib
+     1>Done Building Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\ModelLoadingTutorial\DirectXTK\DirectXTK_Desktop_2013.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:20.68
