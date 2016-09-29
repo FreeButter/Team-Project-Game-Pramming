@@ -22,7 +22,6 @@
     <RootNamespace>BasicGameTemplate</RootNamespace>
     <ProjectGuid>{e91c46d3-0f64-4774-b0f4-1c7c58ef8554}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <ProjectName>DogeyBall</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -156,7 +155,6 @@
   <ItemGroup>
     <ClInclude Include="DeviceResources.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="ModelController.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StepTimer.h" />
   </ItemGroup>
@@ -164,7 +162,6 @@
     <ClCompile Include="DeviceResources.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="ModelController.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -176,6 +173,7 @@
     <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\cup.jpg" />
     <Image Include="directx.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +183,9 @@
     <ProjectReference Include="..\DirectXTK\DirectXTK_Desktop_2013.vcxproj">
       <Project>{e0b52ae7-e160-4d32-bf3f-910b785e5a8e}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\cup.cmo" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

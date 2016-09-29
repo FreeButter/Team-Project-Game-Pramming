@@ -8,45 +8,23 @@
       <UniqueIdentifier>61376f83-271c-45ef-9003-bae032290328</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dds;dlg;fbx;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{dc271575-e8c2-4b9a-851d-7a5272cadb34}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source">
-      <UniqueIdentifier>{6bccaa7a-ecbc-4338-b01f-8ca55bde68e1}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="StepTimer.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="DeviceResources.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ModelController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="DeviceResources.cpp">
       <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ModelController.cpp">
-      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,10 +34,18 @@
     <Image Include="directx.ico">
       <Filter>Assets</Filter>
     </Image>
+    <Image Include="..\cup.jpg">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="settings.manifest">
       <Filter>Assets</Filter>
     </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\cup.cmo">
+      <Filter>Assets</Filter>
+    </None>
   </ItemGroup>
 </Project>
