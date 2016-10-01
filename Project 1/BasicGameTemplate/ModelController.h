@@ -1,3 +1,11 @@
+/**
+DogeyBalls
+ModelController.h
+Purpose: Controls the model rendering 
+
+@author Miguel Saavedra
+@version 1.0 1/10/16
+*/
 #ifndef MODELCONTROLLER_H
 #define MODELCONTROLLER_H
 #include <SimpleMath.h>
