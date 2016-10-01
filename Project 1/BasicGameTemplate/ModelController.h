@@ -3,7 +3,7 @@ DogeyBalls
 ModelController.h
 Purpose: Controls the model rendering 
 
-@author Miguel Saavedra
+@author Miguel Saavedra - Assisted by Sonic
 @version 1.0 1/10/16
 */
 #ifndef MODELCONTROLLER_H
