@@ -37,7 +37,7 @@ ModelController::InitDevices(DX::DeviceResources* pdeviceRes)
 	//m_fxFactory = std::make_unique<DirectX::EffectFactory>(device);
 	m_fxFactory = std::make_unique<DirectX::DGSLEffectFactory>(device);
 
-	m_model = DirectX::Model::CreateFromCMO(device, L"cup.cmo", *m_fxFactory);
+	m_model = DirectX::Model::CreateFromCMO(device, L"sword.cmo", *m_fxFactory);
 
 	// Initialize lights and fog
 	m_model->UpdateEffects([](DirectX::IEffect* effect)
@@ -70,7 +70,7 @@ ModelController::InitResources(float backBufferWidth, float backBufferHeight)
 	// Resource initialization
 	m_world = DirectX::SimpleMath::Matrix::Identity;
 
-	m_view = DirectX::SimpleMath::Matrix::CreateLookAt(DirectX::SimpleMath::Vector3(2.f, 2.f, 2.f),
+	m_view = DirectX::SimpleMath::Matrix::CreateLookAt(DirectX::SimpleMath::Vector3(4.f, 4.f, 4.f),
 		DirectX::SimpleMath::Vector3::Zero, DirectX::SimpleMath::Vector3::UnitY);
 	m_proj = DirectX::SimpleMath::Matrix::CreatePerspectiveFieldOfView(DirectX::XM_PI / 4.f,
 		float(backBufferWidth) / float(backBufferHeight), 0.1f, 10.f);

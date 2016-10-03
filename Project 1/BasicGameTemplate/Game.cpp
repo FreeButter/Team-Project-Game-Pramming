@@ -61,7 +61,6 @@ void Game::Update(DX::StepTimer const& timer)
 	
 	float time = float(timer.GetTotalSeconds());
 	m_modelController->Update(time);
-	//m_world = SimpleMath::Matrix::CreateRotationZ(cosf(time) * 2.f);
 }
 #pragma endregion
 
@@ -165,36 +164,6 @@ void Game::CreateDeviceDependentResources()
 	// TODO: Initialize device dependent objects here (independent of window size).
 	m_modelController->InitDevices(m_deviceResources.get());
 
-	/*m_states = std::make_unique<CommonStates> (m_deviceResources->GetD3DDevice());
-
-	m_fxFactory = std::make_unique<DGSLEffectFactory>(m_deviceResources->GetD3DDevice());
-
-	m_model = Model::CreateFromCMO(m_deviceResources->GetD3DDevice(), L"cup.cmo", *m_fxFactory);
-
-	m_world = SimpleMath::Matrix::Identity;
-
-	m_model->UpdateEffects([](IEffect* effect)
-	{
-		auto lights = dynamic_cast<IEffectLights*>(effect);
-		if (lights)
-		{
-			lights->SetLightingEnabled(true);
-			lights->SetPerPixelLighting(true);
-			lights->SetLightEnabled(0, true);
-			lights->SetLightDiffuseColor(0, Colors::Gold);
-			lights->SetLightEnabled(1, false);
-			lights->SetLightEnabled(2, false);
-		}
-
-		auto fog = dynamic_cast<IEffectFog*>(effect);
-		if (fog)
-		{
-			fog->SetFogEnabled(true);
-			fog->SetFogColor(Colors::CornflowerBlue);
-			fog->SetFogStart(3.f);
-			fog->SetFogEnd(4.f);
-		}
-	});*/
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.
@@ -204,19 +173,13 @@ void Game::CreateWindowSizeDependentResources()
 	auto size = m_deviceResources->GetOutputSize();
 
 	m_modelController->InitResources((float)size.right, (float)size.bottom);
-	/*m_view = SimpleMath::Matrix::CreateLookAt(SimpleMath::Vector3(2.f, 2.f, 2.f),
-	                                          SimpleMath::Vector3::Zero, SimpleMath::Vector3::UnitY);
-	m_proj = SimpleMath::Matrix::CreatePerspectiveFieldOfView(XM_PI / 4.f,
-		float(size.right) / float(size.bottom), 0.1f, 10.f);*/
+
 }
 
 void Game::OnDeviceLost()
 {
     // TODO: Add Direct3D resource cleanup here.
 	m_modelController.reset();
-	//m_states.reset();
-	//m_fxFactory.reset();
-	//m_model.reset();
 }
 
 void Game::OnDeviceRestored()

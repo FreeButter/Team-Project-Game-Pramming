@@ -62,7 +62,7 @@ public: // Public Member Definitions
 	std::unique_ptr<DirectX::IEffectFactory> m_fxFactory;
 	std::unique_ptr<DirectX::Model> m_model;
 
-	// TODO: Add iterator and vecotor to hold unqiue model pointers
+	// TODO: Add iterator and vector to hold unqiue model pointers
 
 };
 
