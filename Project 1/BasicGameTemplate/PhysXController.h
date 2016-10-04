@@ -1,7 +1,7 @@
 /**
 DogeyBalls
-ModelController.h
-Purpose: Controls the model rendering
+PhysXController.h
+Purpose: Controls the Physics
 
 @author Miguel Saavedra - Assisted by Sonic
 @version 1.0 1/10/16
@@ -22,19 +22,24 @@ public: // Public Function Definitions
 	template <typename T>
 	void SetVar(T&& value, T&& originalValue){ value = std::forward<T>(originalValue); }
 
-	// Takes a pointer of the DeviceResources object
-	// initialize all the device variables needed 
-	// for model loading.
-	// TODO: Add functioality to read in data from a json String to create Models
 	void InitPhysX();
 	void ReleasePhysX();
+
+	void Simulate();
 
 public: // Public Member Definitions
 
 	// Member objects
-
+	static physx::PxDefaultErrorCallback gDefaultErrorCallback;
+	static physx::PxDefaultAllocator gDefaultAllocatorCallback;
 
 	// Member pointers
+	physx::PxPhysics *mPhysics = NULL;
+	physx::PxFoundation *mFoundation = NULL;
+	physx::PxProfileZoneManager *mProfileZoneManager;
+
+	// Scene Variables
+
 
 
 };
