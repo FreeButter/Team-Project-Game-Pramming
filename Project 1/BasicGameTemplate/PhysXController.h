@@ -9,7 +9,7 @@ Purpose: Controls the Physics
 #ifndef PHYSXCONTROLLER_H
 #define PHYSXCONTROLLER_H
 
-#include <PxPhysicsAPI.h>
+#include "PxPhysicsAPI.h"
 
 class PhysXController
 {
@@ -25,11 +25,27 @@ public: // Public Function Definitions
 	void InitPhysX();
 	void ReleasePhysX();
 
+<<<<<<< HEAD
+	void CreateScene();
+=======
 	void Simulate();
+>>>>>>> origin/PhysX-Implementation
 
 public: // Public Member Definitions
 
 	// Member objects
+<<<<<<< HEAD
+	physx::PxDefaultErrorCallback* gDefaultErrorCallback;
+	physx::PxDefaultAllocator* gDefaultAllocatorCallback;
+
+	//static PxDefaultSimulationFilterShader gDefaultFilterShader;
+
+	physx::PxProfileZoneManager* mProfileZoneManager;
+	physx::PxFoundation* mFoundation;
+	physx::PxPhysics* mPhysics;
+	physx::PxCooking* mCooking;
+	physx::PxScene* mScene;
+=======
 	static physx::PxDefaultErrorCallback gDefaultErrorCallback;
 	static physx::PxDefaultAllocator gDefaultAllocatorCallback;
 
@@ -40,7 +56,9 @@ public: // Public Member Definitions
 
 	// Scene Variables
 
+>>>>>>> origin/PhysX-Implementation
 
+	// Member pointers
 
 };
 

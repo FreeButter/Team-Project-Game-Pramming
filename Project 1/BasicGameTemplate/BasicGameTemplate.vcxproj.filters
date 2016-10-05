@@ -14,6 +14,9 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{2abc491e-b92b-4034-89b2-fb2befec30a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PhysX">
+      <UniqueIdentifier>{8c5542dd-1fce-4a7d-b125-51b9438d9aef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -33,6 +36,9 @@
     </ClInclude>
     <ClInclude Include="PhysXController.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PxAllocatorCallback.h">
+      <Filter>PhysX</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
