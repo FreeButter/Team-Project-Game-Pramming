@@ -12,6 +12,8 @@ using Microsoft::WRL::ComPtr;
 Game::Game()
 {
     m_deviceResources = std::make_unique<DX::DeviceResources>();
+	// TODO: Create Controllers unique pointers
+	m_modelController = std::unique_ptr<ModelController>(new ModelController());
     m_deviceResources->RegisterDeviceNotify(this);
 }
 
@@ -32,7 +34,11 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetFixedTimeStep(true);
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
+
+	
+	
 }
+
 
 #pragma region Frame Update
 // Executes the basic game loop.
@@ -52,7 +58,9 @@ void Game::Update(DX::StepTimer const& timer)
     float elapsedTime = float(timer.GetElapsedSeconds());
 
     // TODO: Add your game logic here.
-    elapsedTime;
+	
+	float time = float(timer.GetTotalSeconds());
+	m_modelController->Update(time);
 }
 #pragma endregion
 
@@ -72,7 +80,9 @@ void Game::Render()
     auto context = m_deviceResources->GetD3DDeviceContext();
 
     // TODO: Add your rendering code here.
-    context;
+	m_modelController->Draw(m_deviceResources.get());
+	//m_model->Draw(m_deviceResources->GetD3DDeviceContext(), *m_states, m_world, m_view, m_proj);
+    
 
     m_deviceResources->PIXEndEvent();
 
@@ -149,21 +159,27 @@ void Game::GetDefaultSize(int& width, int& height) const
 // These are the resources that depend on the device.
 void Game::CreateDeviceDependentResources()
 {
-    auto device = m_deviceResources->GetD3DDevice();
+	auto device = m_deviceResources->GetD3DDevice();
+    
+	// TODO: Initialize device dependent objects here (independent of window size).
+	m_modelController->InitDevices(m_deviceResources.get());
 
-    // TODO: Initialize device dependent objects here (independent of window size).
-    device;
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.
 void Game::CreateWindowSizeDependentResources()
 {
     // TODO: Initialize windows-size dependent objects here.
+	auto size = m_deviceResources->GetOutputSize();
+
+	m_modelController->InitResources((float)size.right, (float)size.bottom);
+
 }
 
 void Game::OnDeviceLost()
 {
     // TODO: Add Direct3D resource cleanup here.
+	m_modelController.reset();
 }
 
 void Game::OnDeviceRestored()
