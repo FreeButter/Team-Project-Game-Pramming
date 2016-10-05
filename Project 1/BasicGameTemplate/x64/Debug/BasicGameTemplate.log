@@ -1,0 +1,20 @@
+﻿Build started 5/10/2016 6:04:26 p.m..
+     1>Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\DirectXTK\Inc" /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:fast /Zc:wchar_t /Zc:forScope /Yc"pch.h" /Fp"x64\Debug\BasicGameTemplate.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt pch.cpp
+         pch.cpp
+     1>c:\users\user\documents\github\team-project-gp\project 1\basicgametemplate\pch.h(25): warning C4005: '_WIN32_WINNT' : macro redefinition
+                 C:\Program Files (x86)\Windows Kits\8.1\Include\shared\sdkddkver.h(200) : see previous definition of '_WIN32_WINNT'
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\DirectXTK\Inc" /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:fast /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"x64\Debug\BasicGameTemplate.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt DeviceResources.cpp Game.cpp Main.cpp ModelController.cpp PhysXController.cpp
+         PhysXController.cpp
+     1>c:\users\user\documents\github\team-project-gp\project 1\basicgametemplate\PhysXController.h(12): fatal error C1083: Cannot open include file: 'PxPhysicsAPI.h': No such file or directory
+         ModelController.cpp
+         Main.cpp
+         Game.cpp
+         DeviceResources.cpp
+         Generating Code...
+     1>Done Building Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:08.46
