@@ -4,6 +4,7 @@
 
 #include "pch.h"
 #include "Game.h"
+#include "PhysXController.h"
 
 using namespace DirectX;
 
@@ -14,6 +15,7 @@ Game::Game()
     m_deviceResources = std::make_unique<DX::DeviceResources>();
 	// TODO: Create Controllers unique pointers
 	m_modelController = std::unique_ptr<ModelController>(new ModelController());
+	m_physXController = std::unique_ptr<PhysXController>(new PhysXController());
     m_deviceResources->RegisterDeviceNotify(this);
 }
 
@@ -61,6 +63,7 @@ void Game::Update(DX::StepTimer const& timer)
 	
 	float time = float(timer.GetTotalSeconds());
 	m_modelController->Update(time);
+	//m_physXController->StepPhysX(time);
 }
 #pragma endregion
 
@@ -80,8 +83,8 @@ void Game::Render()
     auto context = m_deviceResources->GetD3DDeviceContext();
 
     // TODO: Add your rendering code here.
-	m_modelController->Draw(m_deviceResources.get());
-	//m_model->Draw(m_deviceResources->GetD3DDeviceContext(), *m_states, m_world, m_view, m_proj);
+	m_modelController->Render(m_deviceResources.get());
+	//m_model->Render(m_deviceResources->GetD3DDeviceContext(), *m_states, m_world, m_view, m_proj);
     
 
     m_deviceResources->PIXEndEvent();
@@ -163,7 +166,6 @@ void Game::CreateDeviceDependentResources()
     
 	// TODO: Initialize device dependent objects here (independent of window size).
 	m_modelController->InitDevices(m_deviceResources.get());
-
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.

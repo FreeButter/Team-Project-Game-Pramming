@@ -1,121 +1,30 @@
-///**
-//DogeyBalls
-//ModelController.cpp
-//Purpose: Controls the model rendering
-//
-//@author Miguel Saavedra
-//@version 1.0 1/10/16
-//*/
-//
-//#include "pch.h"
-//#include "PhysXController.h"
-//#include <PxPhysicsAPI.h>
-//#include <PxDefaultErrorCallback.h>
-//#include <PxDefaultAllocator.h>
-//#include <PxExtensionsAPI.h>
-//#include <foundation\PxFoundation.h>
-//#include <iostream>
-//
-//PhysXController::PhysXController()
-//{
-//
-//}
-//
-//PhysXController::~PhysXController()
-//{
-//
-//}
-//
-//void
-//PhysXController::InitPhysX()
-//{
-//	gDefaultAllocatorCallback = new physx::PxDefaultAllocator();
-//	if (!gDefaultAllocatorCallback)
-//	{
-//		std::cerr << "Unable to create DefaultAllocatorCallback\n";
-//		exit(-1);
-//	}
-//	gDefaultErrorCallback = new physx::PxDefaultErrorCallback();
-//	if (!gDefaultErrorCallback)
-//	{
-//		std::cerr << "Unable to create DefaultErrorCallback\n";
-//		exit(-1);
-//	}
-//
-//	mFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, *gDefaultAllocatorCallback, *gDefaultErrorCallback);
-//	assert(!mFoundation);
-//		//fatalError("PxCreateFoundation failed!");
-//
-//	bool recordMemoryAllocations = true;
-//	//mProfileZoneManager = &physx::PxProfileZoneManager::createProfileZoneManager(mFoundation);
-//	//assert(!mProfileZoneManager);
-//	//	//fatalError("PxProfileZoneManager::createProfileZoneManager failed!");
-//
-//	mPhysics = PxCreatePhysics(PX_PHYSICS_VERSION, *mFoundation,
-//    physx::PxTolerancesScale(), recordMemoryAllocations, mProfileZoneManager);
-//	assert(!mPhysics);
-//		//fatalError("PxCreatePhysics failed!");
-//
-//	//mCooking = PxCreateCooking(PX_PHYSICS_VERSION, *mFoundation, physx::PxCookingParams());
-//	//assert(!mCooking);
-//	//	//fatalError("PxCreateCooking failed!");
-//
-//}
-//
-//void
-//PhysXController::ReleasePhysX()
-//{
-//	mPhysics->release();
-//	mFoundation->release();
-//}
-//
-////void
-////PhysXController::CreateScene()
-////{
-////	static PxDefaultSimulationFilterShader gDefaultFilterShader;
-////
-////	physx::PxSceneDesc sceneDesc(mPhysics->getTolerancesScale());
-////	sceneDesc.gravity = PxVec3(0.0f, -9.81f, 0.0f);
-////	customizeSceneDesc(sceneDesc);
-////
-////	if (!sceneDesc.cpuDispatcher)
-////	{
-////		mCpuDispatcher = physx::PxDefaultCpuDispatcherCreate(mNbThreads);
-////		if (!mCpuDispatcher)
-////			fatalError("PxDefaultCpuDispatcherCreate failed!");
-////		sceneDesc.cpuDispatcher = mCpuDispatcher;
-////	}
-////	if (!sceneDesc.filterShader)
-////		sceneDesc.filterShader = &gDefaultFilterShader;
-////
-////#ifdef PX_WINDOWS
-////	if (!sceneDesc.gpuDispatcher && mCudaContextManager)
-////	{
-////		sceneDesc.gpuDispatcher = mCudaContextManager->getGpuDispatcher();
-////	}
-////#endif
-////
-////	mScene = mPhysics->createScene(sceneDesc);
-////	if (!mScene)
-////		fatalError("createScene failed!");
-////
-////}
-//
-//PX_FORCE_INLINE physx::PxSimulationFilterShader getSampleFilterShader()
-//{
-//	return physx::PxDefaultSimulationFilterShader;
-//}
+/**
+DogeyBalls
+ModelController.h
+Purpose: Controls the model rendering
 
+@author Sonic - Assisted By Miguel
+@version 1.0 1/10/16
+*/
+
+//#includes
 #include "pch.h"
 #include "PhysXController.h"
+#include <iostream>
+#include <PxPhysicsAPI.h> 
+#include <PxExtensionsAPI.h> 
+#include <PxDefaultErrorCallback.h>
+#include <PxDefaultAllocator.h> 
+#include <PxDefaultSimulationFilterShader.h>
+#include <PxDefaultCpuDispatcher.h>
+#include <PxSimpleFactory.h>
+#include <foundation/PxFoundation.h>
+#include <PxRigidStatic.h>
 
 using namespace std;
 using namespace physx;
 
 // link libraries
-//#pragma comment(lib, "PhysX3CHECKED_x86.lib")
-//#pragma comment(lib, "PhysX3CommonCHECKED_x86.lib")
-//#pragma comment(lib, "PhysX3ExtensionsCHECKED.lib")
 #pragma comment(lib,"PhysX3DEBUG_x86.lib")
 #pragma comment(lib,"PhysX3CharacterKinematicDEBUG_x86.lib")
 #pragma comment(lib,"PhysX3CommonDEBUG_x86.lib")
@@ -124,85 +33,133 @@ using namespace physx;
 #pragma comment(lib,"PxTaskDEBUG.lib")
 #pragma comment(lib,"PhysX3ExtensionsDEBUG.lib")
 
-// Physx Physics
-PxPhysics *mPhysics = NULL;
 
-void initPhysX() {
-	static PxDefaultErrorCallback gDefaultErrorCallback;
-	static PxDefaultAllocator gDefaultAllocatorCallback;
-	PxFoundation *mFoundation = NULL;
-	PxProfileZoneManager* mProfileZoneManager;
+// PhysX Variables note: Does not work if in 
+static physx::PxPhysics* gPhysicsSDK;
+static physx::PxFoundation * gFoundationSDK;
+static physx::PxProfileZoneManager *gProfileSDK;
+static physx::PxDefaultErrorCallback gDefaultErrorCallback;
+static physx::PxDefaultAllocator gDefaultAllocatorCallback;
+static physx::PxSimulationFilterShader gDefaultFilterShader = physx::PxDefaultSimulationFilterShader;
+physx::PxScene* gScene = NULL;
+physx::PxReal myTimestep = 1.0f / 60.0f;
+physx::PxRigidActor *box;
 
-	printf("initializing PhysX\n");
+PhysXController::PhysXController()
+{
 
-<<<<<<< HEAD
-	printf("creating Foundation\n");
-	// create foundation object with default error and allocator callbacks.
-	mFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
-
-	//bool recordMemoryAllocations = true;
-	//mProfileZoneManager = &PxProfileZoneManager::createProfileZoneManager(mFoundation);
-	//assert(!mProfileZoneManager);
-	//	//fatalError("PxProfileZoneManager::createProfileZoneManager failed!");
-
-	printf("creating Physics\n");
-	// create Physics object with the created foundation and with a 'default' scale tolerance.
-	mPhysics = PxCreatePhysics( PX_PHYSICS_VERSION, *mFoundation, PxTolerancesScale());
-	assert(mPhysics);
-	printf("PhysX initialized\n");
-
-	printf("shutting down\n");
-	mPhysics->release();
-	mFoundation->release();
 }
-=======
+
+PhysXController::~PhysXController()
+{
+
+}
+
 void
 PhysXController::InitPhysX()
 {
-	static physx::PxDefaultErrorCallback gDefaultErrorCallback;
-	static physx::PxDefaultAllocator gDefaultAllocatorCallback;
+	//Initialize Foundation
+	gFoundationSDK = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
+	if (gFoundationSDK == NULL) {
+		cerr << "Error creating PhysX3 device." << endl;
+		cerr << "Exiting..." << endl;
+		exit(1);
+	}
 
-	// Initialize foundation  
-	mFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback,
-		gDefaultErrorCallback);
-	assert(!mFoundation);
-		//fatalError("PxCreateFoundation failed!");
-
-	// top-level PxPhysics object:
+	//Initialize Profile
 	bool recordMemoryAllocations = true;
-	mProfileZoneManager = &physx::PxProfileZoneManager::createProfileZoneManager(mFoundation);
-	assert(!mProfileZoneManager);
-		//fatalError("PxProfileZoneManager::createProfileZoneManager failed!");
+	gProfileSDK = &PxProfileZoneManager::createProfileZoneManager(gFoundationSDK);
+	if (gProfileSDK == NULL) {
+		cerr << "Error creating PhysX3 device." << endl;
+		cerr << "Exiting..." << endl;
+		exit(1);
+	}
 
-	mPhysics = PxCreatePhysics(PX_PHYSICS_VERSION, *mFoundation,
-	    physx::PxTolerancesScale(), recordMemoryAllocations, mProfileZoneManager);
-	assert(!mPhysics);
-		//fatalError("PxCreatePhysics failed!");
+	//Initialize Physics
+	gPhysicsSDK = PxCreatePhysics(PX_PHYSICS_VERSION, *gFoundationSDK,
+		PxTolerancesScale(), recordMemoryAllocations, gProfileSDK);
+	if (gPhysicsSDK == NULL) {
+		cerr << "Error creating PhysX3 device." << endl;
+		cerr << "Exiting..." << endl;
+		exit(1);
+	}
 
-	// Initialize Cooking Yummm
-	mCooking = PxCreateCooking(PX_PHYSICS_VERSION, *mFoundation, physx::PxCookingParams(scale));
-	if (!mCooking)
-		fatalError("PxCreateCooking failed!");
+	//If PxInitExtensions does not load
+	if (!PxInitExtensions(*gPhysicsSDK))
+		cerr << "PxInitExtensions failed!" << endl;
+
+	//Visual Debugger Connector
+	//PxExtensionVisualDebugger::connect(gPhysicsSDK->getPvdConnectionManager(),"localhost",5425, 10000, true);
+
+	//Create the scene
+	PxSceneDesc sceneDesc(gPhysicsSDK->getTolerancesScale());
+	sceneDesc.gravity = PxVec3(0.0f, -9.8f, 0.0f);
+
+	if (!sceneDesc.cpuDispatcher) {
+		PxDefaultCpuDispatcher* mCpuDispatcher = PxDefaultCpuDispatcherCreate(1);
+		if (!mCpuDispatcher)
+			cerr << "PxDefaultCpuDispatcherCreate failed!" << endl;
+		sceneDesc.cpuDispatcher = mCpuDispatcher;
+	}
+	if (!sceneDesc.filterShader)
+		sceneDesc.filterShader = gDefaultFilterShader;
+
+	gScene = gPhysicsSDK->createScene(sceneDesc);
+	if (!gScene)
+		cerr << "createScene failed!" << endl;
+
+	gScene->setVisualizationParameter(PxVisualizationParameter::eSCALE, 1.0);
+	gScene->setVisualizationParameter(PxVisualizationParameter::eCOLLISION_SHAPES, 1.0f);
+
+	//Set the MAterial
+	PxMaterial* mMaterial = gPhysicsSDK->createMaterial(0.5, 0.5, 0.5);
+
+	//Create actors 
+	//1) Create ground plane
+	PxReal d = 0.0f;
+	PxTransform pose = PxTransform(PxVec3(0.0f, 0, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
+
+	PxRigidStatic* plane = gPhysicsSDK->createRigidStatic(pose);
+	if (!plane)
+		cerr << "create plane failed!" << endl;
+
+	PxShape* shape = plane->createShape(PxPlaneGeometry(), *mMaterial);
+	if (!shape)
+		cerr << "create shape failed!" << endl;
+	gScene->addActor(*plane);
+
+	//2) Create cube	 
+	PxReal density = 1.0f;
+	PxTransform transform(PxVec3(0.0f, 10.0f, 0.0f), PxQuat::createIdentity());
+	PxVec3 dimensions(0.5, 0.5, 0.5);
+	PxBoxGeometry geometry(dimensions);
+
+	PxRigidDynamic *actor = PxCreateDynamic(*gPhysicsSDK, transform, geometry, *mMaterial, density);
+	actor->setAngularDamping(0.75);
+	actor->setLinearVelocity(PxVec3(0, 0, 0));
+	if (!actor)
+		cerr << "create actor failed!" << endl;
+	gScene->addActor(*actor);
+
+	box = actor;
+}
+
+void
+PhysXController::StepPhysX(float time)
+{
+	gScene->simulate(time);
+
+	//...perform useful work here using previous frame's state data        
+	while (!gScene->fetchResults())
+	{
+		//TODO: do something useful        
+	}
 }
 
 void
 PhysXController::ReleasePhysX()
 {
-	mPhysics->release();
-	mFoundation->release();
+	//Release PhysX Resources
+	gPhysicsSDK->release();
+	gFoundationSDK->release();
 }
-
-
-void
-PhysXController::Simulate()
-{
-	scene->simulate(dt);
-	scene->fetchResults(true);
-
->>>>>>> origin/PhysX-Implementation
-
-//int main() {
-//	initPhysX();
-//
-//	return 0;
-//}

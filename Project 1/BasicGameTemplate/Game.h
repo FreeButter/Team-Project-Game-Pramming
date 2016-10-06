@@ -10,6 +10,7 @@
 #include "StepTimer.h"
 #include <SimpleMath.h>
 #include "ModelController.h"
+#include "PhysXController.h"
 
 
 // A basic game implementation that creates a D3D11 device and
@@ -67,6 +68,8 @@ private:
 	// Controller Unique Pointers
 
 	std::unique_ptr<ModelController> m_modelController;
+	std::unique_ptr<PhysXController> m_physXController;
+
 
 	
 };

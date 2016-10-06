@@ -9,22 +9,11 @@
 #include <PxShapeExt.h>
 #include <PxSimpleFactory.h>
 #include <foundation/PxFoundation.h>
-#include <PxPhysXCommon.h>
-#include <PxDefaultSimulationFilterShader.h>
-#include <PxDefaultCpuDispatcher.h>
-#include <PxExtensionsAPI.h>
 #include <PxRigidStatic.h>
-#include <PxBroadcastingAllocator.h>
-#include <PxSimulationEventCallback.h>
 
 using namespace std;
 using namespace physx;
 
-//#pragma comment(lib, "PhysX3_x86.lib")
-//#pragma comment(lib, "PxTask.lib")
-//#pragma comment(lib, "Foundation.lib")
-//#pragma comment(lib, "PhysX3Extensions.lib")
-//#pragma comment(lib, "GeomUtils.lib") 
 #pragma comment(lib,"PhysX3DEBUG_x86.lib")
 #pragma comment(lib,"PhysX3CharacterKinematicDEBUG_x86.lib")
 #pragma comment(lib,"PhysX3CommonDEBUG_x86.lib")
@@ -146,8 +135,6 @@ void DrawGrid(int GRID_SIZE)
 	}
 	glEnd();
 }
-
-
 
 void StepPhysX()
 {

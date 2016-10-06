@@ -25,38 +25,19 @@ public: // Public Function Definitions
 	void InitPhysX();
 	void ReleasePhysX();
 
-<<<<<<< HEAD
 	void CreateScene();
-=======
+
 	void Simulate();
->>>>>>> origin/PhysX-Implementation
+	void StepPhysX(float time);
 
 public: // Public Member Definitions
 
 	// Member objects
-<<<<<<< HEAD
-	physx::PxDefaultErrorCallback* gDefaultErrorCallback;
-	physx::PxDefaultAllocator* gDefaultAllocatorCallback;
 
-	//static PxDefaultSimulationFilterShader gDefaultFilterShader;
-
-	physx::PxProfileZoneManager* mProfileZoneManager;
-	physx::PxFoundation* mFoundation;
-	physx::PxPhysics* mPhysics;
-	physx::PxCooking* mCooking;
-	physx::PxScene* mScene;
-=======
-	static physx::PxDefaultErrorCallback gDefaultErrorCallback;
-	static physx::PxDefaultAllocator gDefaultAllocatorCallback;
 
 	// Member pointers
-	physx::PxPhysics *mPhysics = NULL;
-	physx::PxFoundation *mFoundation = NULL;
-	physx::PxProfileZoneManager *mProfileZoneManager;
 
 	// Scene Variables
-
->>>>>>> origin/PhysX-Implementation
 
 	// Member pointers
 

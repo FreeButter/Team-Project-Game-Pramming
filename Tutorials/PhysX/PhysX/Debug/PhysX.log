@@ -1,4 +1,4 @@
-﻿Build started 5/10/2016 7:28:33 p.m..
+﻿Build started 6/10/2016 11:20:04 a.m..
      1>Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Tutorials\PhysX\PhysX\PhysX.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Tutorials\PhysX\packages\nupengl.core.0.1.0.1\build\native\../..//build/native/include/" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
@@ -36,4 +36,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.34
+Time Elapsed 00:00:06.29

@@ -45,7 +45,7 @@ public: // Public Function Definitions
 	// Takes a pointer of the DeviceResources object,
 	// then draws a Model
 	// TODO: iterates through all models and draws them
-	void Draw(DX::DeviceResources* pdeviceRes);
+	void Render(DX::DeviceResources* pdeviceRes);
 
 	// Takes a time float then Updates the look of 
 	// what model is being drawn
@@ -61,6 +61,14 @@ public: // Public Member Definitions
 	std::unique_ptr<DirectX::CommonStates> m_states;
 	std::unique_ptr<DirectX::IEffectFactory> m_fxFactory;
 	std::unique_ptr<DirectX::Model> m_model;
+
+	std::unique_ptr<DirectX::BasicEffect> m_effect;
+	std::unique_ptr<DirectX::PrimitiveBatch<DirectX::VertexPositionColor>> m_batch;
+	Microsoft::WRL::ComPtr<ID3D11InputLayout> m_inputLayout;
+
+	std::unique_ptr<DirectX::GeometricPrimitive> m_shape;
+
+	float index = 0;
 
 	// TODO: Add iterator and vector to hold unqiue model pointers
 
