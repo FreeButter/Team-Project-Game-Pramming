@@ -1,20 +1,51 @@
-﻿Build started 6/10/2016 6:07:49 p.m..
+﻿Build started 6/10/2016 7:44:06 p.m..
      1>Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\DirectXTK\Inc" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MD /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /GR /Yu"pch.h" /Fp"Debug\BasicGameTemplate.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModelController.cpp
-         ModelController.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\DirectXTK\Inc" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MD /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /GR /Yu"pch.h" /Fp"Debug\BasicGameTemplate.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Entity.cpp ModelData.cpp
+         ModelData.cpp
+         Entity.cpp
+         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\BasicGameTemplate.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win32" /LIBPATH:"C:\Program Files (x86)\PhysXSDK\Lib\vc12win32" /LIBPATH:"C:\Program Files (x86)\PhysXSDK\Lib\vc12win64" d3d11.lib dxgi.lib dxguid.lib uuid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib PhysX3DEBUG_x86.lib PhysX3CommonDEBUG_x86.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:settings.manifest /DEBUG /PDB:"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\BasicGameTemplate.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\BasicGameTemplate.lib" /MACHINE:X86 Debug\resource.res
          Debug\DeviceResources.obj
+         Debug\Entity.obj
          Debug\Game.obj
          Debug\Main.obj
          Debug\ModelController.obj
+         Debug\ModelData.obj
          Debug\pch.obj
          Debug\PhysXController.obj
          "C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\DirectXTK\Bin\Desktop_2013\Win32\Debug\DirectXTK.lib"
+            Creating library C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\BasicGameTemplate.lib and object C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\BasicGameTemplate.exp
+     1>LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>MSVCRT.lib(cinitexe.obj) : warning LNK4098: defaultlib 'libcmtd.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+     1>PhysXProfileSDKDEBUG.lib(PxProfileEventImpl.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysXProfileSDKDEBUG.lib(PxProfileEventImpl.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtCpuWorkerThread.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtCpuWorkerThread.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtD6Joint.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtD6Joint.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtD6JointSolverPrep.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtD6JointSolverPrep.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtDefaultCpuDispatcher.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtDefaultCpuDispatcher.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtDefaultErrorCallback.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtDefaultErrorCallback.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtDefaultSimulationFilterShader.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtDefaultSimulationFilterShader.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtDistanceJoint.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtDistanceJoint.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtDistanceJointSolverPrep.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtDistanceJointSolverPrep.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtExtensions.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtExtensions.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtFixedJoint.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtFixedJoint.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtFixedJointSolverPrep.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtFixedJointSolverPrep.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtJoint.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtJoint.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtMetaData.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtMetaData.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtPrismaticJoint.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtPrismaticJoint.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtPrismaticJointSolverPrep.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtPrismaticJointSolverPrep.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtRevoluteJoint.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtRevoluteJoint.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtRevoluteJointSolverPrep.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtRevoluteJointSolverPrep.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtRigidBodyExt.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtRigidBodyExt.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtSimpleFactory.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtSimpleFactory.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtSphericalJoint.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtSphericalJoint.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtSphericalJointSolverPrep.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtSphericalJointSolverPrep.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(ExtVisualDebugger.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(ExtVisualDebugger.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
+     1>PhysX3ExtensionsDEBUG.lib(PxExtensionAutoGeneratedMetaDataObjects.obj) : warning LNK4099: PDB 'vc100.pdb' was not found with 'PhysX3ExtensionsDEBUG.lib(PxExtensionAutoGeneratedMetaDataObjects.obj)' or at 'C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\vc100.pdb'; linking object as if no debug info
          BasicGameTemplate.vcxproj -> C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\BasicGameTemplate.exe
      1>Done Building Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.83
+Time Elapsed 00:00:03.13
