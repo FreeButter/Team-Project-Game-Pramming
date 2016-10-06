@@ -10,10 +10,11 @@
 #include "StepTimer.h"
 #include <SimpleMath.h>
 #include "ModelController.h"
+#include "CameraController.h"
 
 
 // A basic game implementation that creates a D3D11 device and
-// provides a game loop.
+// provides a game loop. 
 class Game : public DX::IDeviceNotify
 {
 public:
@@ -67,7 +68,29 @@ private:
 	// Controller Unique Pointers
 
 	std::unique_ptr<ModelController> m_modelController;
+	std::unique_ptr<CameraController> m_cameraController;
+	std::unique_ptr<DirectX::GraphicsMemory> m_graphicsMemory;
 
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;
+	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
+	DirectX::SimpleMath::Vector2 m_screenPos;
+	DirectX::SimpleMath::Vector2 m_origin;
+	std::unique_ptr<DirectX::CommonStates> m_states;
+	RECT m_tileRect;
+	RECT m_fullscreenRect;
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_background;
+
+	std::unique_ptr<DirectX::Keyboard> m_keyboard;
+	std::unique_ptr<DirectX::Mouse> m_mouse;
+
+	std::unique_ptr<DirectX::GeometricPrimitive> m_room;
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_roomTex;
+	DirectX::SimpleMath::Matrix m_proj;
+	DirectX::SimpleMath::Vector3 m_cameraPos;
+	float m_pitch;
+	float m_yaw;
+
+	//
 	
 };
 
