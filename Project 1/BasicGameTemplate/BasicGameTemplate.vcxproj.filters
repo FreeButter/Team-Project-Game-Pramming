@@ -14,6 +14,9 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{2abc491e-b92b-4034-89b2-fb2befec30a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Textures">
+      <UniqueIdentifier>{41838444-a768-4742-8b02-d716fc1baf2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -29,6 +32,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StepTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -48,6 +54,9 @@
     <ClCompile Include="DeviceResources.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CameraController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -58,6 +67,21 @@
     </Image>
     <Image Include="..\cup.jpg">
       <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\sunset.jpg">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\cat.DDS">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\cat.png">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\roomtexture.dds">
+      <Filter>Assets\Textures</Filter>
+    </Image>
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\Sheep D.dds">
+      <Filter>Assets\Textures</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

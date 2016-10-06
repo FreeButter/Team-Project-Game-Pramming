@@ -156,11 +156,13 @@
   <ItemGroup>
     <ClInclude Include="DeviceResources.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="CameraController.h" />
     <ClInclude Include="ModelController.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="StepTimer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CameraController.cpp" />
     <ClCompile Include="DeviceResources.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -176,6 +178,11 @@
     <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\cat.DDS" />
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\cat.png" />
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\roomtexture.dds" />
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\Sheep D.dds" />
+    <Image Include="..\..\..\Keyboard Input Tutorial\Direct3D Win32 Game2\sunset.jpg" />
     <Image Include="..\cup.jpg" />
     <Image Include="directx.ico" />
   </ItemGroup>

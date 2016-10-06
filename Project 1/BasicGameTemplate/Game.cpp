@@ -11,10 +11,11 @@ using Microsoft::WRL::ComPtr;
 
 Game::Game()
 {
-    m_deviceResources = std::make_unique<DX::DeviceResources>();
 	// TODO: Create Controllers unique pointers
+    m_deviceResources = std::make_unique<DX::DeviceResources>();
 	m_modelController = std::unique_ptr<ModelController>(new ModelController());
     m_deviceResources->RegisterDeviceNotify(this);
+	m_cameraController = std::unique_ptr<CameraController>(new CameraController());
 }
 
 // Initialize the Direct3D resources required to run.
@@ -28,6 +29,8 @@ void Game::Initialize(HWND window, int width, int height)
     m_deviceResources->CreateWindowSizeDependentResources();
     CreateWindowSizeDependentResources();
 
+	m_cameraController->InitialiseCamera(window);
+
     // TODO: Change the timer settings if you want something other than the default variable timestep mode.
     // e.g. for 60 FPS fixed timestep update logic, call:
     /*
@@ -35,8 +38,6 @@ void Game::Initialize(HWND window, int width, int height)
     m_timer.SetTargetElapsedSeconds(1.0 / 60);
     */
 
-	
-	
 }
 
 
@@ -61,6 +62,7 @@ void Game::Update(DX::StepTimer const& timer)
 	
 	float time = float(timer.GetTotalSeconds());
 	m_modelController->Update(time);
+	m_cameraController->CameraUpdate(elapsedTime);
 }
 #pragma endregion
 
@@ -76,8 +78,11 @@ void Game::Render()
 
     Clear();
 
+
     m_deviceResources->PIXBeginEvent(L"Render");
-    auto context = m_deviceResources->GetD3DDeviceContext();
+	auto context = m_deviceResources->GetD3DDeviceContext();
+	m_cameraController->RenderCamera(m_deviceResources.get());
+
 
     // TODO: Add your rendering code here.
 	m_modelController->Draw(m_deviceResources.get());
@@ -163,7 +168,7 @@ void Game::CreateDeviceDependentResources()
     
 	// TODO: Initialize device dependent objects here (independent of window size).
 	m_modelController->InitDevices(m_deviceResources.get());
-
+	m_cameraController->InitCameraDevices(m_deviceResources.get());
 }
 
 // Allocate all memory resources that change on a window SizeChanged event.
@@ -171,8 +176,8 @@ void Game::CreateWindowSizeDependentResources()
 {
     // TODO: Initialize windows-size dependent objects here.
 	auto size = m_deviceResources->GetOutputSize();
-
 	m_modelController->InitResources((float)size.right, (float)size.bottom);
+	m_cameraController->InitCameraResources((float)size.right, (float)size.bottom);
 
 }
 
@@ -180,6 +185,7 @@ void Game::OnDeviceLost()
 {
     // TODO: Add Direct3D resource cleanup here.
 	m_modelController.reset();
+	m_cameraController.reset();
 }
 
 void Game::OnDeviceRestored()
