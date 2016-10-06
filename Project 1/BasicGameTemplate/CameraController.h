@@ -18,7 +18,7 @@ public:
 	// Initialization and management
 	void InitialiseCamera(HWND window);
 	void CameraUpdate(float elapsedTime);
-	void RenderCamera();
+	void RenderCamera(DX::DeviceResources* pdeviceRes);
 	void InitCameraDevices(DX::DeviceResources* pdeviceRes);
 	void InitCameraResources(float backBufferWidth, float backBufferHeight);
 	void Reset();

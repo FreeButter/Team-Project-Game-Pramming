@@ -17,8 +17,11 @@ static const XMVECTORF32 ROOM_BOUNDS = { 8.f, 6.f, 12.f, 0.f };
 static const float ROTATION_GAIN = 0.004f;
 static const float MOVEMENT_GAIN = 0.07f;
 
-CameraController::CameraController()
+CameraController::CameraController() :
+m_pitch(0),
+m_yaw(0)
 {
+	m_cameraPos = START_POSITION.v;
 }
 
 CameraController::~CameraController()
@@ -41,7 +44,6 @@ void CameraController::CameraUpdate(float elapsedTime)
 		PostQuitMessage(0);
 
 	auto mouse = m_mouse->GetState();
-	elapsedTime;
 
 	if (kb.Home)
 	{
@@ -75,13 +77,6 @@ void CameraController::CameraUpdate(float elapsedTime)
 	if (kb.D)
 		m_yaw -= 0.05f;
 
-	/*
-	if (kb.Q)
-	m_pitch += 0.08f;
-
-	if (kb.E)
-	m_pitch -= 0.08f;*/
-
 	SimpleMath::Quaternion q = SimpleMath::Quaternion::CreateFromYawPitchRoll(m_yaw, m_pitch, 0.f);
 
 	move = SimpleMath::Vector3::Transform(move, q);
@@ -97,60 +92,11 @@ void CameraController::CameraUpdate(float elapsedTime)
 	m_cameraPos = SimpleMath::Vector3::Max(m_cameraPos, -halfBound);
 }
 
-void CameraController::RenderCamera(){
-	//Camera Keyboard Update
-	auto kb = m_keyboard->GetState();
-	if (kb.Escape)
-		PostQuitMessage(0);
-
-	auto mouse = m_mouse->GetState();
-
-	if (kb.Home)
-	{
-		m_cameraPos = START_POSITION.v;
-		m_pitch = m_yaw = 0;
-	}
-
-	SimpleMath::Vector3 move = SimpleMath::Vector3::Zero;
-
-	if (kb.Up)
-		move.y += 1.f;
-
-	if (kb.Down)
-		move.y -= 1.f;
-
-	if (kb.W)
-		move.z += 1.f;
-
-	if (kb.S)
-		move.z -= 1.f;
-
-	if (kb.Left)
-		move.x += 1.f;
-
-	if (kb.Right)
-		move.x -= 1.f;
-
-	if (kb.PageUp || kb.Space)
-		move.z += 1.f;
-
-	if (kb.PageDown || kb.X)
-		move.z -= 1.f;
-
-	SimpleMath::Quaternion q = SimpleMath::Quaternion::CreateFromYawPitchRoll(m_yaw, m_pitch, 0.f);
-
-	move = SimpleMath::Vector3::Transform(move, q);
-
-	move *= MOVEMENT_GAIN;
-
-	m_cameraPos += move;
-
-	SimpleMath::Vector3 halfBound = (SimpleMath::Vector3(ROOM_BOUNDS.v) / SimpleMath::Vector3(2.f))
-		- SimpleMath::Vector3(0.1f, 0.1f, 0.1f);
-
-	m_cameraPos = SimpleMath::Vector3::Min(m_cameraPos, halfBound);
-	m_cameraPos = SimpleMath::Vector3::Max(m_cameraPos, -halfBound);
+void CameraController::RenderCamera(DX::DeviceResources* pdeviceRes){
 	//m_model->Draw(m_deviceResources->GetD3DDeviceContext(), *m_states, m_world, m_view, m_proj);
+	auto context = pdeviceRes->GetD3DDeviceContext();
+
+	// TODO: Add your rendering code here.
 	float y = sinf(m_pitch);
 	float r = cosf(m_pitch);
 	float z = r*cosf(m_yaw);
@@ -159,10 +105,9 @@ void CameraController::RenderCamera(){
 	XMVECTOR lookAt = m_cameraPos + SimpleMath::Vector3(x, y, z);
 
 	XMMATRIX view = XMMatrixLookAtRH(m_cameraPos, lookAt, SimpleMath::Vector3::Up);
-	ID3D11ShaderResourceView* tex = m_roomTex.Get();
-	m_room->Draw(SimpleMath::Matrix::Identity, view, m_proj, Colors::White, tex);
+	m_room->Draw(SimpleMath::Matrix::Identity, view, m_proj, Colors::White, m_roomTex.Get());
 
-	}
+}
 
 void CameraController::InitCameraDevices(DX::DeviceResources* pdeviceRes){
 	// TODO: Initialize device dependent objects here (independent of window size).
