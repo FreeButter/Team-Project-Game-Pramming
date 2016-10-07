@@ -1,24 +1,9 @@
-﻿Build started 7/10/2016 1:08:08 p.m..
-     1>Project "E:\hw\ANDROID\GAME PROGRAMMING\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"E:\hw\ANDROID\GAME PROGRAMMING\Team-Project-GP\Project 1\\DirectXTK\Inc" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /GR /Yu"pch.h" /Fp"Debug\BasicGameTemplate.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CameraController.cpp
-         CameraController.cpp
-     1>e:\hw\android\game programming\team-project-gp\project 1\basicgametemplate\cameracontroller.cpp(156): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
-     1>e:\hw\android\game programming\team-project-gp\project 1\basicgametemplate\cameracontroller.cpp(156): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>e:\hw\android\game programming\team-project-gp\project 1\basicgametemplate\cameracontroller.cpp(157): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
-     1>e:\hw\android\game programming\team-project-gp\project 1\basicgametemplate\cameracontroller.cpp(157): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\hw\ANDROID\GAME PROGRAMMING\Team-Project-GP\Project 1\Debug\BasicGameTemplate.exe" /INCREMENTAL /NOLOGO d3d11.lib dxgi.lib dxguid.lib uuid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib PhysX3DEBUG_x86.lib PhysX3ExtensionsDEBUG.lib PhysX3CommonDEBUG_x86.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:settings.manifest /DEBUG /PDB:"E:\hw\ANDROID\GAME PROGRAMMING\Team-Project-GP\Project 1\Debug\BasicGameTemplate.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\hw\ANDROID\GAME PROGRAMMING\Team-Project-GP\Project 1\Debug\BasicGameTemplate.lib" /MACHINE:X86 Debug\resource.res
-         Debug\CameraController.obj
-         Debug\DeviceResources.obj
-         Debug\Game.obj
-         Debug\Main.obj
-         Debug\ModelController.obj
-         Debug\pch.obj
-         "E:\hw\ANDROID\GAME PROGRAMMING\Team-Project-GP\Project 1\DirectXTK\Bin\Desktop_2013\Win32\Debug\DirectXTK.lib"
-         BasicGameTemplate.vcxproj -> E:\hw\ANDROID\GAME PROGRAMMING\Team-Project-GP\Project 1\Debug\BasicGameTemplate.exe
-     1>Done Building Project "E:\hw\ANDROID\GAME PROGRAMMING\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" (Build target(s)).
+﻿Build started 7/10/2016 1:32:38 p.m..
+     1>Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         BasicGameTemplate.vcxproj -> C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\Debug\BasicGameTemplate.exe
+     1>Done Building Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.40
+Time Elapsed 00:00:00.26
