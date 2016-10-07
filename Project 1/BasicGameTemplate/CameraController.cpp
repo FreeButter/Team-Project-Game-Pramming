@@ -86,8 +86,18 @@ void CameraController::CameraUpdate(float elapsedTime)
 		if (m_pitch<0.9)
 			m_pitch += tanf(elapsedTime)*1.0f;
 	}
+	if (kb.R){//Reset rotations
+		m_pitch = m_yaw = 0;
+	}
 
-	SimpleMath::Quaternion q = SimpleMath::Quaternion::CreateFromYawPitchRoll(m_yaw, m_pitch, 0.f);
+	SimpleMath::Quaternion q;
+
+	if (m_yaw > 0 || m_pitch > 0){
+		q = SimpleMath::Quaternion::CreateFromYawPitchRoll(0, 0, 0.f);
+	}
+	else{
+		q = SimpleMath::Quaternion::CreateFromYawPitchRoll(m_yaw, m_pitch, 0.f);
+	}
 
 	move = SimpleMath::Vector3::Transform(move, q);
 
