@@ -16,6 +16,8 @@ Purpose: Controls the model rendering
 #include "DeviceResources.h"
 
 
+class ModelData;
+
 class ModelController
 {
 	
@@ -45,14 +47,15 @@ public: // Public Function Definitions
 	// Takes a pointer of the DeviceResources object,
 	// then draws a Model
 	// TODO: iterates through all models and draws them
-	void Draw(DX::DeviceResources* pdeviceRes);
+	void Draw(DX::DeviceResources* pdeviceRes, DirectX::Model* pModel);
 
 	// Takes a time float then Updates the look of 
 	// what model is being drawn
-	void Update(float time);
+	void Update(float time, ModelData* modelData);
 public: // Public Member Definitions
 
 	// Member objects
+	// passed in variable
 	DirectX::SimpleMath::Matrix m_world;
 	DirectX::SimpleMath::Matrix m_view;
 	DirectX::SimpleMath::Matrix m_proj;
@@ -60,6 +63,7 @@ public: // Public Member Definitions
 	// Member pointers
 	std::unique_ptr<DirectX::CommonStates> m_states;
 	std::unique_ptr<DirectX::IEffectFactory> m_fxFactory;
+	// passed in variable
 	std::unique_ptr<DirectX::Model> m_model;
 
 	// TODO: Add iterator and vector to hold unqiue model pointers

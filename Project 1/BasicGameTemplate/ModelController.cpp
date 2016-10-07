@@ -86,15 +86,23 @@ ModelController::Reset()
 }
 
 void 
-ModelController::Draw(DX::DeviceResources* pdeviceRes)
+ModelController::Draw(DX::DeviceResources* pdeviceRes, DirectX::Model* pModel)
 { 
+	// Get Device context
 	ID3D11DeviceContext* deviceContext = pdeviceRes->GetD3DDeviceContext();
+
 	m_model->Draw(deviceContext, *m_states, m_world, m_view, m_proj);
 }
 
 void
-ModelController::Update(float time)
+ModelController::Update(float time, ModelData* model)
 {
+	//TODO: get all all transformation Data
+
+	//TODO: get all all translation Data
+
+	//TODO: get all all rotation Data
+
 	m_world = DirectX::SimpleMath::Matrix::CreateRotationZ(cosf(time) * 2.f);
 }
 
