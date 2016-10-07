@@ -17,45 +17,75 @@
     <Filter Include="Assets\Textures">
       <UniqueIdentifier>{41838444-a768-4742-8b02-d716fc1baf2d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{fc512616-7b37-40d0-9724-13fbee6b8355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{4b2b7fff-221e-4b74-8db8-c96ede2a2ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Dependency">
+      <UniqueIdentifier>{89aeafef-8ce1-4613-a04a-ca0671313abf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{21e8c39a-0fbe-41c3-a57e-95db99935a2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{849d3ccf-3cec-40cb-99d6-3ac3e78377f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Dependency">
+      <UniqueIdentifier>{6a0929fe-12a0-4948-8a33-37135a8be390}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="CameraController.h">
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
     <ClInclude Include="ModelController.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
     <ClInclude Include="DeviceResources.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelData.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files\Dependency</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files\Dependency</Filter>
     </ClInclude>
     <ClInclude Include="StepTimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CameraController.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Dependency</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="CameraController.cpp">
+      <Filter>Source Files\Controller</Filter>
     </ClCompile>
     <ClCompile Include="ModelController.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="DeviceResources.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Dependency</Filter>
     </ClCompile>
-    <ClCompile Include="CameraController.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Dependency</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Dependency</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelData.cpp">
+      <Filter>Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files\Dependency</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
