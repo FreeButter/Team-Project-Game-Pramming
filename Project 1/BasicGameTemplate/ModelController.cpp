@@ -74,7 +74,6 @@ ModelController::InitResources(float backBufferWidth, float backBufferHeight)
 		DirectX::SimpleMath::Vector3::Zero, DirectX::SimpleMath::Vector3::UnitY);
 	m_proj = DirectX::SimpleMath::Matrix::CreatePerspectiveFieldOfView(DirectX::XM_PI / 4.f,
 		float(backBufferWidth) / float(backBufferHeight), 0.1f, 10.f);
-
 }
 
 void

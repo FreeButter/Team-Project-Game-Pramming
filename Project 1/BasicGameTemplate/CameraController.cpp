@@ -72,10 +72,20 @@ void CameraController::CameraUpdate(float elapsedTime)
 		move.x -= 1.f;
 
 	if (kb.A)
-		m_yaw += 0.05f;
+		m_yaw += tanf(elapsedTime)*1.0f;
 
 	if (kb.D)
-		m_yaw -= 0.05f;
+		m_yaw -= tanf(elapsedTime)*1.0f;
+
+	if (kb.Q){
+		if (m_pitch>-0.5)
+			m_pitch -= tanf(elapsedTime)*1.0f;
+	}
+
+	if (kb.E){
+		if (m_pitch<0.9)
+			m_pitch += tanf(elapsedTime)*1.0f;
+	}
 
 	SimpleMath::Quaternion q = SimpleMath::Quaternion::CreateFromYawPitchRoll(m_yaw, m_pitch, 0.f);
 
