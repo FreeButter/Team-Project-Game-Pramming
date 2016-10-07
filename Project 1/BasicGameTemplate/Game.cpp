@@ -80,7 +80,6 @@ void Game::Render()
 
 
     m_deviceResources->PIXBeginEvent(L"Render");
-	auto context = m_deviceResources->GetD3DDeviceContext();
 	m_cameraController->RenderCamera(m_deviceResources.get());
 
 
