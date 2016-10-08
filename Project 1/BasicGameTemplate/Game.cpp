@@ -5,6 +5,7 @@
 #include "pch.h"
 #include "Game.h"
 #include "PhysXController.h"
+#include "Entity.h"
 
 using namespace DirectX;
 
@@ -22,6 +23,9 @@ Game::Game()
 // Initialize the Direct3D resources required to run.
 void Game::Initialize(HWND window, int width, int height)
 {
+	// put in some entities
+	//Entity* player = new Entity();
+	//player->init()
     m_deviceResources->SetWindow(window, width, height);
 
     m_deviceResources->CreateDeviceResources();
@@ -31,6 +35,7 @@ void Game::Initialize(HWND window, int width, int height)
     CreateWindowSizeDependentResources();
 
     // TODO: Change the timer settings if you want something other than the default variable timestep mode.
+	m_physXController->InitPhysX();
     // e.g. for 60 FPS fixed timestep update logic, call:
     /*
     m_timer.SetFixedTimeStep(true);
@@ -63,7 +68,7 @@ void Game::Update(DX::StepTimer const& timer)
 	
 	float time = float(timer.GetTotalSeconds());
 	m_modelController->Update(time);
-	//m_physXController->StepPhysX(time);
+	m_physXController->StepPhysX(time);
 }
 #pragma endregion
 
@@ -85,7 +90,7 @@ void Game::Render()
     // TODO: Add your rendering code here.
 	m_modelController->Render(m_deviceResources.get());
 	//m_model->Render(m_deviceResources->GetD3DDeviceContext(), *m_states, m_world, m_view, m_proj);
-    
+	m_physXController->Render();
 
     m_deviceResources->PIXEndEvent();
 

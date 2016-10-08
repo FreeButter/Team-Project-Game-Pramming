@@ -11,6 +11,8 @@ behaivour and state
 #define __ENTITY_H__
 #include <string>
 #include "ModelData.h"
+#include <PxPhysicsAPI.h> 
+#include "ActorData.h"
 
 // Forward Declarations:
 
@@ -23,7 +25,8 @@ public:
 
 	// Initialie the basic entity object
 	void Init(std::string name, const char modelFileLoc,
-		 float x, float y, float z, int type);
+		float x, float y, float z, int type, float radius);
+	// TODO: change place of radius
 
 	// Proccess the state of the Entity at any time
 	// during the game
@@ -57,6 +60,10 @@ public:
 
 	// TODO: get MODEL pointer
 
+	// TODO: actor functions
+	void InitActor(physx::PxRigidDynamic *actor, ActorData* data);
+	
+
 protected:
 
 private:
@@ -65,10 +72,21 @@ public:
 	std::string m_name;
 	// Type of entity
 	// TODO: move to some global variables
-	enum type {player, ball, rocket};
+	enum type {player, ball, rocket, box};
 	int entityType;
+	
+	// PhysX Actor Variables
+	// Cannot create unique because object is protected
+	physx::PxRigidActor* actor;
+	// Stores initial data of actor
+	std::unique_ptr<ActorData> actorData;
 
 protected:
+	// Default Physx variables
+	float DENSITY = 1.0f; // How dense
+	float ADAMPENING = 0.75f; // IDK
+	// TODO: move this somewhere where it can be changed on init
+	float RADIUS = 5;
 
 	// Position of Entity
 	// Extends to Position of model

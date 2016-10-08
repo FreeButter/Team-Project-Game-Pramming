@@ -67,6 +67,9 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files\Dependency</Filter>
     </ClInclude>
+    <ClInclude Include="ActorData.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModelController.cpp">
@@ -92,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorData.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

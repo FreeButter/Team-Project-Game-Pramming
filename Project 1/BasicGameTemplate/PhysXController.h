@@ -11,6 +11,8 @@ Purpose: Controls the Physics
 
 #include "PxPhysicsAPI.h"
 
+class ActorData;
+
 class PhysXController
 {
 
@@ -30,10 +32,19 @@ public: // Public Function Definitions
 	void Simulate();
 	void StepPhysX(float time);
 
+	// Rendering Functions
+	void DrawShape(physx::PxShape* pShape);
+	void Render();
+	void DrawActor(physx::PxRigidActor* actor);
+
+	// Init given from the entity class actor
+	// and add it to the physx scene
+	void InitActor(physx::PxRigidDynamic* actor, ActorData* data);
+
 public: // Public Member Definitions
 
 	// Member objects
-
+	std::unique_ptr<DirectX::GeometricPrimitive> m_shape;
 
 	// Member pointers
 

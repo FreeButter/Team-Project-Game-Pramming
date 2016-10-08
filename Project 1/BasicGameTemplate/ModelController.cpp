@@ -85,7 +85,7 @@ ModelController::InitDevices(DX::DeviceResources* pdeviceRes)
 	});
 
 	//Creates Box, Size x 2
-	m_shape = DirectX::GeometricPrimitive::CreateTeapot(pdeviceRes->GetD3DDeviceContext());
+	m_shape = DirectX::GeometricPrimitive::CreateCube(pdeviceRes->GetD3DDeviceContext());
 }
 
 void

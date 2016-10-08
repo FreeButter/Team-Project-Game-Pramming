@@ -45,5 +45,5 @@ ModelData::SetNewRotation(float rotation)
 void
 ModelData::SetNewTransform()
 {
-	
+	// do something
 }

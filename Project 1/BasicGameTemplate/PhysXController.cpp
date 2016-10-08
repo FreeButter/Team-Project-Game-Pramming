@@ -20,6 +20,7 @@ Purpose: Controls the model rendering
 #include <PxSimpleFactory.h>
 #include <foundation/PxFoundation.h>
 #include <PxRigidStatic.h>
+#include "ActorData.h"
 
 using namespace std;
 using namespace physx;
@@ -43,7 +44,9 @@ static physx::PxDefaultAllocator gDefaultAllocatorCallback;
 static physx::PxSimulationFilterShader gDefaultFilterShader = physx::PxDefaultSimulationFilterShader;
 physx::PxScene* gScene = NULL;
 physx::PxReal myTimestep = 1.0f / 60.0f;
-physx::PxRigidActor *box;
+physx::PxRigidActor *aSphereShape;
+//PxShape* aSphereShape;
+PxMaterial* mMaterial;
 
 PhysXController::PhysXController()
 {
@@ -132,7 +135,9 @@ PhysXController::InitPhysX()
 	PxReal density = 1.0f;
 	PxTransform transform(PxVec3(0.0f, 10.0f, 0.0f), PxQuat::createIdentity());
 	PxVec3 dimensions(0.5, 0.5, 0.5);
-	PxBoxGeometry geometry(dimensions);
+	//PxBoxGeometry geometry(dimensions);
+	// Creating Sphere Geometry
+	PxSphereGeometry geometry(4);
 
 	PxRigidDynamic *actor = PxCreateDynamic(*gPhysicsSDK, transform, geometry, *mMaterial, density);
 	actor->setAngularDamping(0.75);
@@ -141,7 +146,53 @@ PhysXController::InitPhysX()
 		cerr << "create actor failed!" << endl;
 	gScene->addActor(*actor);
 
-	box = actor;
+	aSphereShape = actor;
+}
+
+void PhysXController::InitActor(physx::PxRigidDynamic *actor, ActorData* data)
+{
+
+	// Creating Sphere Geometry
+	if (data->type == 0)
+	{
+		PxSphereGeometry geometry(data->m_sphereGeometry);
+		actor = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_sphereGeometry, *mMaterial, data->m_density);
+	}
+	if (data->type == 1)
+	{
+		PxBoxGeometry geometry(data->m_boxGeometry);
+		actor = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_sphereGeometry, *mMaterial, data->m_density);
+	}
+	
+	// Take all variables from Actor Data object and init actor
+	
+	actor->setAngularDamping(data->m_angularDampening);	
+	actor->setLinearVelocity(data->m_linearVelocityVector);
+	if (!actor)
+		cerr << "create actor failed!" << endl;
+	gScene->addActor(*actor);
+	// TODO: add to actor vector 
+}
+
+void PhysXController::DrawShape(PxShape* pShape) {
+	PxTransform pT = PxShapeExt::getGlobalPose(*pShape);
+	PxBoxGeometry bg;
+	pShape->getBoxGeometry(bg);
+	PxMat33 m = PxMat33(pT.q);
+}
+
+void PhysXController::DrawActor(PxRigidActor* actor)
+{
+	// TODO: loop through actor vector
+	PxU32 nShapes = actor->getNbShapes();
+	PxShape** shapes = new PxShape*[nShapes];
+
+	actor->getShapes(shapes, nShapes);
+	while (nShapes--)
+	{
+		DrawShape(shapes[nShapes]);
+	}
+	delete[] shapes;
 }
 
 void
@@ -155,6 +206,29 @@ PhysXController::StepPhysX(float time)
 		//TODO: do something useful        
 	}
 }
+
+void
+PhysXController::Render()
+{
+	//PxVec3 position = { 0.0f, 1.0f, 0.0f };
+	//PxVec3 velocity = { 0.0f, -0.1f, 0.0f };
+	//PxRigidDynamic* aSphereActor = gPhysicsSDK->createRigidDynamic(PxTransform(position));
+	//aSphereShape = aSphereActor->createShape(PxSphereGeometry(1), *mMaterial);
+	//PxRigidBodyExt::updateMassAndInertia(*aSphereActor, 3);
+
+	//aSphereActor->setLinearVelocity(velocity);
+
+	//gScene->addActor(*aSphereActor);
+
+	//PxRigidStatic* plane = PxCreatePlane(*gPhysicsSDK, PxPlane(PxVec3(0, 1, 0), 0), *mMaterial);
+
+	//gScene->addActor(*plane);
+	
+	DrawActor(aSphereShape);
+
+
+}
+
 
 void
 PhysXController::ReleasePhysX()
