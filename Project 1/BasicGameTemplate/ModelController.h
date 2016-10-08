@@ -47,11 +47,11 @@ public: // Public Function Definitions
 	// Takes a pointer of the DeviceResources object,
 	// then draws a Model
 	// TODO: iterates through all models and draws them
-	void Draw(DX::DeviceResources* pdeviceRes, DirectX::Model* pModel);
+	void Draw(DX::DeviceResources* pdeviceRes/*, DirectX::Model* pModel*/);
 
 	// Takes a time float then Updates the look of 
 	// what model is being drawn
-	void Update(float time, ModelData* modelData);
+	void Update(float time/*, ModelData* modelData*/);
 public: // Public Member Definitions
 
 	// Member objects

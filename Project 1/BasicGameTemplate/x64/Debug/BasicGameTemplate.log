@@ -1,0 +1,42 @@
+﻿Build started 10/7/2016 10:26:27 PM.
+     1>Project "C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\\DirectXTK\Inc" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:fast /Zc:wchar_t /Zc:forScope /Yc"pch.h" /Fp"x64\Debug\BasicGameTemplate.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt pch.cpp
+         pch.cpp
+     1>c:\users\miguel saavedra\documents\github\team-project-gp\project 1\basicgametemplate\pch.h(25): warning C4005: '_WIN32_WINNT' : macro redefinition
+                 C:\Program Files (x86)\Windows Kits\8.1\Include\shared\sdkddkver.h(200) : see previous definition of '_WIN32_WINNT'
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\\DirectXTK\Inc" /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:fast /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"x64\Debug\BasicGameTemplate.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt CameraController.cpp DeviceResources.cpp Entity.cpp Game.cpp Main.cpp ModelController.cpp ModelData.cpp
+         ModelData.cpp
+         ModelController.cpp
+         Main.cpp
+         Game.cpp
+         Entity.cpp
+         DeviceResources.cpp
+         CameraController.cpp
+     1>CameraController.cpp(156): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>CameraController.cpp(156): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+     1>CameraController.cpp(157): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>CameraController.cpp(157): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"x64\Debug\resource.res" resource.rc 
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /nologo /fo"x64\Debug\BasicGameTemplate.exe.embed.manifest.res" x64\Debug\BasicGameTemplate_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\x64\Debug\BasicGameTemplate.exe" /INCREMENTAL /NOLOGO d3d11.lib dxgi.lib dxguid.lib uuid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib PhysX3DEBUG_x64.lib PhysX3ExtensionsDEBUG.lib PhysX3CommonDEBUG_x64.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:settings.manifest /DEBUG /PDB:"C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\x64\Debug\BasicGameTemplate.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\x64\Debug\BasicGameTemplate.lib" /MACHINE:X64 x64\Debug\resource.res
+         x64\Debug\CameraController.obj
+         x64\Debug\DeviceResources.obj
+         x64\Debug\Entity.obj
+         x64\Debug\Game.obj
+         x64\Debug\Main.obj
+         x64\Debug\ModelController.obj
+         x64\Debug\ModelData.obj
+         x64\Debug\pch.obj
+         "C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\DirectXTK\Bin\Desktop_2013\x64\Debug\DirectXTK.lib"
+            Creating library C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\x64\Debug\BasicGameTemplate.lib and object C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\x64\Debug\BasicGameTemplate.exp
+         BasicGameTemplate.vcxproj -> C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\x64\Debug\BasicGameTemplate.exe
+     1>Done Building Project "C:\Users\Miguel Saavedra\Documents\GitHub\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.26

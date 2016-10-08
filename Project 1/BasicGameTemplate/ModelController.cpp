@@ -86,7 +86,7 @@ ModelController::Reset()
 }
 
 void 
-ModelController::Draw(DX::DeviceResources* pdeviceRes, DirectX::Model* pModel)
+ModelController::Draw(DX::DeviceResources* pdeviceRes/*, DirectX::Model* pModel*/)
 { 
 	// Get Device context
 	ID3D11DeviceContext* deviceContext = pdeviceRes->GetD3DDeviceContext();
@@ -95,7 +95,7 @@ ModelController::Draw(DX::DeviceResources* pdeviceRes, DirectX::Model* pModel)
 }
 
 void
-ModelController::Update(float time, ModelData* model)
+ModelController::Update(float time/*, ModelData* model*/)
 {
 	//TODO: get all all transformation Data
 
