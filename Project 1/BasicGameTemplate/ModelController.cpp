@@ -8,6 +8,8 @@ Purpose: Controls the model rendering
 */
 #include "pch.h"
 #include "ModelController.h"
+#include <PxRigidActor.h>
+#include "Entity.h"
 
 ModelController::ModelController()
 {
@@ -182,14 +184,16 @@ ModelController::Render(DX::DeviceResources* pdeviceRes)
 }
 
 void
-ModelController::Update(float time)
+ModelController::Update(float time, Entity *player)
 {
 	//Rotates the objects in the world
 	DirectX::SimpleMath::Matrix m = DirectX::SimpleMath::Matrix();
-
 	//m_world = m.CreateRotationY((time) *	1.f);
-	DirectX::SimpleMath::Vector3 pos = DirectX::SimpleMath::Vector3::Lerp(DirectX::SimpleMath::Vector3::Zero, DirectX::SimpleMath::Vector3::One, cos(time));
-	m_world = m.CreateTranslation(pos);
+	float x = player->actor->getGlobalPose().p[0];
+	float y = player->actor->getGlobalPose().p[1];
+	float z = player->actor->getGlobalPose().p[2];
+	DirectX::SimpleMath::Vector3 pos(x, y, z);
+	m_world = m.CreateTranslation(pos); // put in here
 		// * m.CreateRotationY(time);
 }
 

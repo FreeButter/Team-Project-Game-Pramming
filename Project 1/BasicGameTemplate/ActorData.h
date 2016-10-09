@@ -52,7 +52,7 @@ public:
 	// Geometry of a Sphere
 	physx::PxSphereGeometry m_sphereGeometry;
 	// Type of object
-	int type;
+	int m_type;
 
 
 

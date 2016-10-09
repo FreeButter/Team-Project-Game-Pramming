@@ -35,6 +35,9 @@ static PxSimulationFilterShader gDefaultFilterShader = PxDefaultSimulationFilter
 PxScene* gScene = NULL;
 PxReal myTimestep = 1.0f / 60.0f;
 PxRigidActor *box;
+float x = 0;
+
+PxMaterial *mMaterial;
 
 
 //for mouse dragging
@@ -203,7 +206,7 @@ void InitializePhysX() {
 	gScene->setVisualizationParameter(PxVisualizationParameter::eCOLLISION_SHAPES, 1.0f);
 
 
-	PxMaterial* mMaterial = gPhysicsSDK->createMaterial(0.5, 0.5, 0.5);
+	mMaterial = gPhysicsSDK->createMaterial(0.5, 0.5, 0.5);
 
 	//Create actors 
 	//1) Create ground plane
@@ -232,9 +235,27 @@ void InitializePhysX() {
 	if (!actor)
 		cerr << "create actor failed!" << endl;
 	gScene->addActor(*actor);
-
 	box = actor;
 }
+
+void move()
+{
+	PxReal density = 1.0f;
+	PxTransform transform(box->getGlobalPose().p, box->getGlobalPose().q);
+	PxVec3 dimensions(0.5, 0.5, 0.5);
+	PxBoxGeometry geometry(dimensions);
+
+	PxRigidDynamic *actor = PxCreateDynamic(*gPhysicsSDK, transform, geometry, *mMaterial, density);
+	actor->setAngularDamping(0.75);
+	actor->setLinearVelocity(PxVec3(0, 0, 0));
+	if (!actor)
+		cerr << "create actor failed!" << endl;
+	gScene->addActor(*actor);
+	box = actor;
+	
+}
+
+
 
 void getColumnMajor(PxMat33 m, PxVec3 t, float* mat) {
 	mat[0] = m.column0[0];
@@ -299,7 +320,6 @@ void DrawActor(PxRigidActor* actor)
 void RenderActors()
 {
 	// Render all the actors in the scene 
-
 	DrawActor(box);
 }
 
@@ -392,6 +412,8 @@ void Mouse(int button, int s, int x, int y)
 {
 	if (s == GLUT_DOWN)
 	{
+		x += 1;
+		move();
 		oldX = x;
 		oldY = y;
 	}

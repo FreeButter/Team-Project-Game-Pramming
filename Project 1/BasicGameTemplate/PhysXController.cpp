@@ -21,6 +21,7 @@ Purpose: Controls the model rendering
 #include <foundation/PxFoundation.h>
 #include <PxRigidStatic.h>
 #include "ActorData.h"
+#include "Entity.h"
 
 using namespace std;
 using namespace physx;
@@ -115,7 +116,7 @@ PhysXController::InitPhysX()
 	gScene->setVisualizationParameter(PxVisualizationParameter::eCOLLISION_SHAPES, 1.0f);
 
 	//Set the MAterial
-	PxMaterial* mMaterial = gPhysicsSDK->createMaterial(0.5, 0.5, 0.5);
+	mMaterial = gPhysicsSDK->createMaterial(0.5, 0.5, 0.5);
 
 	//Create actors 
 	//1) Create ground plane
@@ -149,29 +150,32 @@ PhysXController::InitPhysX()
 	aSphereShape = actor;
 }
 
-void PhysXController::InitActor(physx::PxRigidDynamic *actor, ActorData* data)
+physx::PxRigidActor*
+PhysXController::InitActor(physx::PxRigidActor* actor, ActorData* data, PxRigidDynamic* dynamic)
 {
-
 	// Creating Sphere Geometry
-	if (data->type == 0)
+	if (data->m_type == Entity::ball)
 	{
 		PxSphereGeometry geometry(data->m_sphereGeometry);
-		actor = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_sphereGeometry, *mMaterial, data->m_density);
+		dynamic = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_sphereGeometry, *mMaterial, data->m_density);
 	}
-	if (data->type == 1)
+	if (data->m_type == Entity::box)
 	{
 		PxBoxGeometry geometry(data->m_boxGeometry);
-		actor = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_sphereGeometry, *mMaterial, data->m_density);
+		dynamic = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_sphereGeometry, *mMaterial, data->m_density);
 	}
 	
 	// Take all variables from Actor Data object and init actor
-	
-	actor->setAngularDamping(data->m_angularDampening);	
-	actor->setLinearVelocity(data->m_linearVelocityVector);
-	if (!actor)
+	dynamic->setAngularDamping(data->m_angularDampening);
+	dynamic->setLinearVelocity(data->m_linearVelocityVector);
+	if (!dynamic)
 		cerr << "create actor failed!" << endl;
-	gScene->addActor(*actor);
-	// TODO: add to actor vector 
+	// Store actor in scene
+	gScene->addActor(*dynamic);
+	// Set actor to dynamic
+	actor = dynamic;
+	
+	return actor;
 }
 
 void PhysXController::DrawShape(PxShape* pShape) {

@@ -26,20 +26,20 @@ public:
 
 	// Setters 
 
-	// Sets up the model object
-	void SetModel(const char fileLoc);
+	//// Sets up the model object
+	//void SetModel(const char fileLoc);
 
-	// Sets the new Position of the model
-	// Takes x y z float values to manipulate
-	// the next place the model is drawn
-	void SetNewVector(float x, float y, float z);
+	//// Sets the new Position of the model
+	//// Takes x y z float values to manipulate
+	//// the next place the model is drawn
+	//void SetNewVector(float x, float y, float z);
 
-	// Sets the rotation of the model 
-	// Takes a float value representing degrees
-	void SetNewRotation(float rotation);
+	//// Sets the rotation of the model 
+	//// Takes a float value representing degrees
+	//void SetNewRotation(float rotation);
 
-	// TODO: Set appropriate value as parameter
-	void SetNewTransform();
+	//// TODO: Set appropriate value as parameter
+	//void SetNewTransform();
 
 protected:
 
@@ -49,20 +49,20 @@ public:
 	// Unique Pointer to the model object
 	std::unique_ptr<DirectX::Model> m_model;
 
-	// Name of the Model
-	std::string name;
+	//// Name of the Model
+	//std::string name;
 
 	// Location of Model
 	const char fileLoc;
 
-	// Unique pointer to Vertex Position of Model
-	std::unique_ptr<DirectX::SimpleMath::Vector3> m_pos;
+	//// Unique pointer to Vertex Position of Model
+	//std::unique_ptr<DirectX::SimpleMath::Vector3> m_pos;
 
-	// Rotation Variable
-	float degrees;
+	//// Rotation Variable
+	//float degrees;
 
-	// Scale/Transform Variable
-	// TODO: Set appropriate variable here to control Scaling
+	//// Scale/Transform Variable
+	//// TODO: Set appropriate variable here to control Scaling
 
 
 	

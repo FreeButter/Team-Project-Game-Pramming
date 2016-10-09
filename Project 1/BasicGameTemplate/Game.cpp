@@ -17,15 +17,15 @@ Game::Game()
 	// TODO: Create Controllers unique pointers
 	m_modelController = std::unique_ptr<ModelController>(new ModelController());
 	m_physXController = std::unique_ptr<PhysXController>(new PhysXController());
+	//TODO: Entities
+	player = new Entity();
     m_deviceResources->RegisterDeviceNotify(this);
 }
 
 // Initialize the Direct3D resources required to run.
 void Game::Initialize(HWND window, int width, int height)
 {
-	// put in some entities
-	//Entity* player = new Entity();
-	//player->init()
+
     m_deviceResources->SetWindow(window, width, height);
 
     m_deviceResources->CreateDeviceResources();
@@ -36,6 +36,10 @@ void Game::Initialize(HWND window, int width, int height)
 
     // TODO: Change the timer settings if you want something other than the default variable timestep mode.
 	m_physXController->InitPhysX();
+	// put in some entities
+	player->Init("ball", NULL, 0.f, 1.0f, 0.0f, Entity::ball, 2);
+	player->SetActor(m_physXController->InitActor(player->actor, player->actorData.get(), player->GetDynamic()));
+
     // e.g. for 60 FPS fixed timestep update logic, call:
     /*
     m_timer.SetFixedTimeStep(true);
@@ -65,9 +69,8 @@ void Game::Update(DX::StepTimer const& timer)
     float elapsedTime = float(timer.GetElapsedSeconds());
 
     // TODO: Add your game logic here.
-	
 	float time = float(timer.GetTotalSeconds());
-	m_modelController->Update(time);
+	m_modelController->Update(time, player);
 	m_physXController->StepPhysX(time);
 }
 #pragma endregion
@@ -89,7 +92,6 @@ void Game::Render()
 
     // TODO: Add your rendering code here.
 	m_modelController->Render(m_deviceResources.get());
-	//m_model->Render(m_deviceResources->GetD3DDeviceContext(), *m_states, m_world, m_view, m_proj);
 	m_physXController->Render();
 
     m_deviceResources->PIXEndEvent();

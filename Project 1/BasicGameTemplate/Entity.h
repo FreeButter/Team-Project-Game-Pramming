@@ -62,6 +62,10 @@ public:
 
 	// TODO: actor functions
 	void InitActor(physx::PxRigidDynamic *actor, ActorData* data);
+
+	physx::PxRigidDynamic* GetDynamic();
+	physx::PxRigidActor* GetActor();
+	void SetActor(physx::PxRigidActor* newActor);
 	
 
 protected:
@@ -80,6 +84,8 @@ public:
 	physx::PxRigidActor* actor;
 	// Stores initial data of actor
 	std::unique_ptr<ActorData> actorData;
+	//Stores Rigid Dynamics of Actor
+	physx::PxRigidDynamic* dynamic;
 
 protected:
 	// Default Physx variables
@@ -104,7 +110,7 @@ protected:
 
 	// Model Data Pointer which contains information about the model
 	// TODO: add pointer
-	ModelData m_modelData;
+	ModelData* m_modelData;
 
 private:
 

@@ -16,6 +16,12 @@ Purpose: Controls the model rendering
 #include "DeviceResources.h"
 
 
+class Entity;
+
+namespace physx {
+	class PxRigidActor;
+}
+
 class ModelController
 {
 	
@@ -49,7 +55,7 @@ public: // Public Function Definitions
 
 	// Takes a time float then Updates the look of 
 	// what model is being drawn
-	void Update(float time);
+	void Update(float time, Entity* player);
 public: // Public Member Definitions
 
 	// Member objects

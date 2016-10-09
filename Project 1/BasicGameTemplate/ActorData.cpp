@@ -15,7 +15,7 @@ ActorData::~ActorData()
 void
 ActorData::InitBoxActor(int type, float dX, float dY, float dZ, float density, float tX, float tY, float tZ, float angularDampening, float vX, float vY, float vZ)
 {
-	type = 1;
+	m_type = type;
 	// Set Up Cube
 	m_density = density;
 	m_transformVector = physx::PxVec3(tX, tY, tZ);
@@ -29,7 +29,7 @@ ActorData::InitBoxActor(int type, float dX, float dY, float dZ, float density, f
 
 void ActorData::InitSphereActor(int type, float radius, float density, float tX, float tY, float tZ, float angularDampening, float vX, float vY, float vZ)
 {
-	type = 0;
+	m_type = type;
 	// Set up Sphere
 	m_density = density;
 	m_transformVector = physx::PxVec3(tX, tY, tZ);

@@ -39,7 +39,7 @@ public: // Public Function Definitions
 
 	// Init given from the entity class actor
 	// and add it to the physx scene
-	void InitActor(physx::PxRigidDynamic* actor, ActorData* data);
+	physx::PxRigidActor* InitActor(physx::PxRigidActor* actor, ActorData* data, physx::PxRigidDynamic* dynamic);
 
 public: // Public Member Definitions
 
