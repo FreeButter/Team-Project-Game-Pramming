@@ -37,7 +37,7 @@ void Game::Initialize(HWND window, int width, int height)
     // TODO: Change the timer settings if you want something other than the default variable timestep mode.
 	m_physXController->InitPhysX();
 	// put in some entities
-	player->Init("ball", NULL, 0.f, 1.0f, 0.0f, Entity::ball, 2);
+	player->Init("ball", NULL, 0.0f, 0.0f, 0.0f, Entity::ball, 2);
 	player->SetActor(m_physXController->InitActor(player->actor, player->actorData.get(), player->GetDynamic()));
 
     // e.g. for 60 FPS fixed timestep update logic, call:
@@ -92,7 +92,7 @@ void Game::Render()
 
     // TODO: Add your rendering code here.
 	m_modelController->Render(m_deviceResources.get());
-	m_physXController->Render();
+	//m_physXController->Render();
 
     m_deviceResources->PIXEndEvent();
 

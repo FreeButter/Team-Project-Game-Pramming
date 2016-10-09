@@ -94,7 +94,7 @@ void
 ModelController::InitResources(float backBufferWidth, float backBufferHeight)
 {
 	// Resource initialization
-	m_view = DirectX::SimpleMath::Matrix::CreateLookAt(DirectX::SimpleMath::Vector3(4.f, 4.f, 4.f),
+	m_view = DirectX::SimpleMath::Matrix::CreateLookAt(DirectX::SimpleMath::Vector3(0.f, 4.f, 6.f),
 		DirectX::SimpleMath::Vector3::Zero, DirectX::SimpleMath::Vector3::UnitY);
 	m_proj = DirectX::SimpleMath::Matrix::CreatePerspectiveFieldOfView(DirectX::XM_PI / 4.f,
 		float(backBufferWidth) / float(backBufferHeight), 0.1f, 10.f);
@@ -129,6 +129,9 @@ ModelController::Render(DX::DeviceResources* pdeviceRes)
 	
 	m_model->Draw(deviceContext, *m_states, m_world, m_view, m_proj);
 
+	//Draws Box
+	m_shape->Draw(m_world, m_view, m_proj);
+
 	auto context = pdeviceRes->GetD3DDeviceContext();
 	
 	m_effect->SetWorld(m_world);
@@ -141,11 +144,14 @@ ModelController::Render(DX::DeviceResources* pdeviceRes)
 
 	DirectX::SimpleMath::Vector3 xaxis(3.f, 0.f, 0.f);
 	DirectX::SimpleMath::Vector3 yaxis(0.f, 0.f, 3.f);
-	DirectX::SimpleMath::Vector3 origin(0, index, 0);
+	DirectX::SimpleMath::Vector3 origin(0, 0, 0);
 
 	//index+=0.001;
 
 		//= DirectX::SimpleMath::Vector3::Zero;
+	m_world = DirectX::SimpleMath::Matrix::CreateTranslation(origin);
+	m_effect->SetWorld(m_world);
+	m_effect->Apply(pdeviceRes->GetD3DDeviceContext());
 
 
 	// Draw Grid
@@ -179,8 +185,6 @@ ModelController::Render(DX::DeviceResources* pdeviceRes)
 
 
 
-	//Draws Teapot
-	m_shape->Draw(m_world, m_view, m_proj);
 }
 
 void
@@ -193,7 +197,11 @@ ModelController::Update(float time, Entity *player)
 	float y = player->actor->getGlobalPose().p[1];
 	float z = player->actor->getGlobalPose().p[2];
 	DirectX::SimpleMath::Vector3 pos(x, y, z);
+	//DirectX::SimpleMath::Vector3 pos = DirectX::SimpleMath::Vector3::Lerp(DirectX::SimpleMath::Vector3(0, 1, 0), 
+	//	DirectX::SimpleMath::Vector3(0, 0, 0), time);
+	
 	m_world = m.CreateTranslation(pos); // put in here
+
 		// * m.CreateRotationY(time);
 }
 
