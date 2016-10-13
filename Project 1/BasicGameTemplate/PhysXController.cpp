@@ -1,6 +1,6 @@
 /**
 DogeyBalls
-ModelController.h
+PhysXController.h
 Purpose: Controls the model rendering
 
 @author Sonic - Assisted By Miguel
@@ -45,7 +45,7 @@ static physx::PxDefaultAllocator gDefaultAllocatorCallback;
 static physx::PxSimulationFilterShader gDefaultFilterShader = physx::PxDefaultSimulationFilterShader;
 physx::PxScene* gScene = NULL;
 physx::PxReal myTimestep = 1.0f / 60.0f;
-physx::PxRigidActor *aSphereShape;
+physx::PxRigidActor *box;
 //PxShape* aSphereShape;
 PxMaterial* mMaterial;
 
@@ -121,64 +121,69 @@ PhysXController::InitPhysX()
 	//Create actors 
 	//1) Create ground plane
 	PxReal d = 0.0f;
-	PxTransform pose = PxTransform(PxVec3(0.0f, 0, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
+	PxTransform pose = PxTransform(PxVec3(0.0f, 1, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
 
-	PxRigidStatic* plane = gPhysicsSDK->createRigidStatic(pose);
-	if (!plane)
-		cerr << "create plane failed!" << endl;
+	//PxRigidStatic* plane = gPhysicsSDK->createRigidStatic(pose);
+	//assert(!plane);
+		//cerr << "create plane failed!" << endl;
+
+	PxRigidStatic* plane = PxCreatePlane(*gPhysicsSDK, PxPlane(PxVec3(0, 1, 0), 0), *mMaterial);
 
 	PxShape* shape = plane->createShape(PxPlaneGeometry(), *mMaterial);
-	if (!shape)
-		cerr << "create shape failed!" << endl;
+	//assert(!shape);
+		//cerr << "create shape failed!" << endl;
 	gScene->addActor(*plane);
 
-	//2) Create cube	 
-	PxReal density = 1.0f;
-	PxTransform transform(PxVec3(0.0f, 10.0f, 0.0f), PxQuat::createIdentity());
-	PxVec3 dimensions(0.5, 0.5, 0.5);
-	//PxBoxGeometry geometry(dimensions);
-	// Creating Sphere Geometry
-	PxSphereGeometry geometry(4);
+	////2) Create cube	 
+	//PxReal density = 1.0f;
+	//PxTransform transform(PxVec3(0.0f, 10.0f, 0.0f), PxQuat::createIdentity());
+	//PxVec3 dimensions(0.5, 0.5, 0.5);
+	////PxBoxGeometry geometry(dimensions);
+	//// Creating Sphere Geometry
+	//PxSphereGeometry geometry(4);
 
-	PxRigidDynamic *actor = PxCreateDynamic(*gPhysicsSDK, transform, geometry, *mMaterial, density);
-	actor->setAngularDamping(0.75);
-	actor->setLinearVelocity(PxVec3(0, 0, 0));
-	if (!actor)
-		cerr << "create actor failed!" << endl;
-	gScene->addActor(*actor);
+	//PxRigidDynamic *actor = PxCreateDynamic(*gPhysicsSDK, transform, geometry, *mMaterial, density);
+	//actor->setAngularDamping(0.75);
+	//actor->setLinearVelocity(PxVec3(0, 0, 0));
+	//if (!actor)
+	//	cerr << "create actor failed!" << endl;
+	//gScene->addActor(*actor);
 
-	aSphereShape = actor;
+	//aSphereShape = actor;
+
 }
 
 physx::PxRigidActor*
 PhysXController::InitActor(physx::PxRigidActor* actor, ActorData* data, PxRigidDynamic* dynamic)
 {
+	PxRigidDynamic* pDynamic = 0;
 	// Creating Sphere Geometry
 	if (data->m_type == Entity::ball)
 	{
 		PxSphereGeometry geometry(data->m_sphereGeometry);
-		dynamic = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_sphereGeometry, *mMaterial, data->m_density);
+		pDynamic = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_sphereGeometry, *mMaterial, data->m_density);
 	}
 	if (data->m_type == Entity::box)
 	{
 		PxBoxGeometry geometry(data->m_boxGeometry);
-		dynamic = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_sphereGeometry, *mMaterial, data->m_density);
+		pDynamic = PxCreateDynamic(*gPhysicsSDK, data->m_transform, data->m_boxGeometry, *mMaterial, data->m_density);
 	}
 	
 	// Take all variables from Actor Data object and init actor
-	dynamic->setAngularDamping(data->m_angularDampening);
-	dynamic->setLinearVelocity(data->m_linearVelocityVector);
-	if (!dynamic)
+	pDynamic->setAngularDamping(data->m_angularDampening);
+	pDynamic->setLinearVelocity(data->m_linearVelocityVector);
+	if (!pDynamic)
 		cerr << "create actor failed!" << endl;
 	// Store actor in scene
-	gScene->addActor(*dynamic);
+	gScene->addActor(*pDynamic);
 	// Set actor to dynamic
-	actor = dynamic;
+	actor = pDynamic;
 	
 	return actor;
 }
 
 void PhysXController::DrawShape(PxShape* pShape) {
+
 	PxTransform pT = PxShapeExt::getGlobalPose(*pShape);
 	PxBoxGeometry bg;
 	pShape->getBoxGeometry(bg);
@@ -212,7 +217,7 @@ PhysXController::StepPhysX(float time)
 }
 
 void
-PhysXController::Render()
+PhysXController::Render(physx::PxRigidActor* actor)
 {
 	//PxVec3 position = { 0.0f, 1.0f, 0.0f };
 	//PxVec3 velocity = { 0.0f, -0.1f, 0.0f };
@@ -228,9 +233,9 @@ PhysXController::Render()
 
 	//gScene->addActor(*plane);
 	
-	DrawActor(aSphereShape);
+	//DrawActor(aSphereShape);
 
-
+	DrawActor(actor);
 }
 
 

@@ -14,6 +14,7 @@ Purpose: Controls the model rendering
 #include <Effects.h>
 #include <Model.h>
 #include "DeviceResources.h"
+#include <PxVec3.h>
 
 
 class Entity;

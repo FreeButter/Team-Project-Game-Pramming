@@ -224,13 +224,13 @@ void InitializePhysX() {
 
 
 	//2) Create cube	 
-	PxReal density = 1.0f;
+	PxReal density = 10000.0f;
 	PxTransform transform(PxVec3(0.0f, 10.0f, 0.0f), PxQuat::createIdentity());
 	PxVec3 dimensions(0.5, 0.5, 0.5);
 	PxBoxGeometry geometry(dimensions);
-
+	
 	PxRigidDynamic *actor = PxCreateDynamic(*gPhysicsSDK, transform, geometry, *mMaterial, density);
-	actor->setAngularDamping(0.75);
+	actor->setAngularDamping(0); 
 	actor->setLinearVelocity(PxVec3(0, 0, 0));
 	if (!actor)
 		cerr << "create actor failed!" << endl;
@@ -240,13 +240,13 @@ void InitializePhysX() {
 
 void move()
 {
-	PxReal density = 1.0f;
+	PxReal density = 10000.0f;
 	PxTransform transform(box->getGlobalPose().p, box->getGlobalPose().q);
 	PxVec3 dimensions(0.5, 0.5, 0.5);
 	PxBoxGeometry geometry(dimensions);
 
 	PxRigidDynamic *actor = PxCreateDynamic(*gPhysicsSDK, transform, geometry, *mMaterial, density);
-	actor->setAngularDamping(0.75);
+	actor->setAngularDamping(0.75f);
 	actor->setLinearVelocity(PxVec3(0, 0, 0));
 	if (!actor)
 		cerr << "create actor failed!" << endl;
@@ -322,9 +322,6 @@ void RenderActors()
 	// Render all the actors in the scene 
 	DrawActor(box);
 }
-
-
-
 
 void ShutdownPhysX() {
 	gScene->removeActor(*box);

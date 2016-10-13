@@ -29,12 +29,11 @@ public: // Public Function Definitions
 
 	void CreateScene();
 
-	void Simulate();
 	void StepPhysX(float time);
 
 	// Rendering Functions
 	void DrawShape(physx::PxShape* pShape);
-	void Render();
+	void Render(physx::PxRigidActor* actor);
 	void DrawActor(physx::PxRigidActor* actor);
 
 	// Init given from the entity class actor

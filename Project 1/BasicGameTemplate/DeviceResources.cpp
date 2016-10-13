@@ -368,6 +368,10 @@ void DX::DeviceResources::CreateWindowSizeDependentResources()
     }
     
     // Set the 3D rendering viewport to target the entire window.
+	// 4 parameters
+	// top left x top left y
+	// width
+	// height
     m_screenViewport = CD3D11_VIEWPORT(
         0.0f,
         0.0f,
