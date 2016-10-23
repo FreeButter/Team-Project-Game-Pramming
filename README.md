@@ -1,5 +1,5 @@
 # Dodgey Balls
-A Dodgey Game
+Executable game can be found in the Release folder and the build code in the BasicGameTemplate folder
 
 ## Requirements
 - 2 Gamepads or Xbox Controllers
