@@ -1,0 +1,98 @@
+{
+    "entity": {
+        "entity_data": {
+            "name": "player1",
+            "type": "box",
+            "is_dead": false,
+			"lives": 3,
+			"invincible": 2
+        },
+        "physx_data": {
+            "type": "box",
+            "position": [ 5, 0, 0 ],           
+            "linear_velocity": [ 0, 0, 0 ],
+            "angulary_dampening": "0.75",
+            "density": 1,
+            "radius": 0.5,
+            "dimensions": [ 0.25, 0.25, 0.25 ]
+        },
+
+        "model_data": {
+            "model_loc": "none"
+        }
+    },
+    "entity2": {
+        "entity_data": {
+            "name": "player2",
+            "type": "box",
+            "is_dead": false,
+			"lives": 3,
+			"invincible": 2
+        },
+        "physx_data": {
+            "type": "box",
+            "position": [ -5, 0, 0 ],
+            "linear_velocity": [ 0, 0, 0 ],
+            "angulary_dampening": "0.75",
+            "density": 1,
+            "radius": 0.5,
+            "dimensions": [ 0.25, 0.25, 0.25 ]
+        },
+
+        "model_data": {
+            "model_loc": "none"
+        }
+    },
+    "ball_test_entityA": {
+        "entity_data": {
+            "name": "dodgeballA",
+            "type": "ball",
+            "is_dead": false
+        },
+        "physx_data": {
+            "type": "ball",
+            "angulary_dampening": "0.75",
+            "density": 1,
+            "radius": 0.25,
+            "linear_velocity": [ -30, 0, -30 ],
+            "dimensions": [ 0.25, 0.25, 0.25 ],
+            "spawn_displacement": [ -2, 0, 0]
+        },
+        "model_data": {
+            "model_loc": "none"
+        }
+    },
+    "ball_test_entityB": {
+        "entity_data": {
+            "name": "dodgeballB",
+            "type": "ball",
+            "is_dead": false
+        },
+        "physx_data": {
+            "type": "ball",
+            "angulary_dampening": "0.75",
+            "density": 1,
+            "radius": 0.25,
+            "linear_velocity": [ 30, 0, 0],
+            "dimensions": [ 0.25, 0.25, 0.25 ],
+            "spawn_displacement": [2, 0, 0]
+        },
+        "model_data": {
+            "model_loc": "none"
+        }
+    },
+	"text": {
+		"menu_text": {
+			"title": {
+				"text_body": "Testing",
+				"xPercent": 0.5,
+				"yPercent": 0.5
+			},
+			"sub_title": {
+				"text_body": "gotta roll the dice",
+				"xPercent": 0.5,
+				"yPercent": 0.5
+			}
+		}
+	}
+}
