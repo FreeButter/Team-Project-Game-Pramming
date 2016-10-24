@@ -1,0 +1,19 @@
+Release Build Notes
+- Please include the following files when building 
+Release version
+
+	- Replace all files in the release folder with
+	the debug folders contents in the root
+
+	- Navigate to the build files located in the
+	BasicGameTemplate 
+		- From there get these files and paste it into
+		the Release folder in the root
+			- Consolas.ttf
+			- data.json
+			- myfile.spritefont
+			- resource.rc
+			- settings.manifest
+			- Assets folder
+					
+	

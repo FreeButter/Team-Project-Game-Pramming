@@ -1,0 +1,21 @@
+﻿Build started 5/10/2016 4:01:16 p.m..
+     1>Project "C:\Program Files (x86)\PhysXSDK\Samples\SampleFramework\platform\compiler\vc9win64public\SamplePlatform-MT.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I./../../include /I./../../../renderer/include /I./../../../framework/include /I./../../../../../Include /I./../../../../../Source/shared/general/shared /I./../../../../../Source/foundation/include /I./../../../../../Source/foundation/include/windows /I./../../../../../Include /I./../../../../../externals/DirectX_Jun2010/Include /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W3 /WX /Ox /D AGPERFMON /D PHYSX_PROFILE_SDK /D WIN64 /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _ALLOW_MSC_VER_MISMATCH /D _ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH /D _DEBUG /D PX_CHECKED /D PX_SUPPORT_VISUAL_DEBUGGER /D _MBCS /GF /Gm- /MTd /GS- /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"./x64/SamplePlatform-MT/debug\\" /Fd"./x64/SamplePlatform-MT/debug\vc120.pdb" /Gd /TP /errorReport:prompt /EHsc /MP /Ox ..\..\src\SamplePlatform.cpp ..\..\src\SampleUserInput.cpp ..\..\src\windows\WindowsSamplePlatform.cpp ..\..\src\windows\WindowsSampleUserInput.cpp
+         SamplePlatform.cpp
+         SampleUserInput.cpp
+         WindowsSamplePlatform.cpp
+         WindowsSampleUserInput.cpp
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1361,5): warning MSB8012: TargetPath(C:\Program Files (x86)\PhysXSDK\Samples\SampleFramework\platform\compiler\vc9win64public\./../../lib/win64\SamplePlatform-MT.lib) does not match the Library's OutputFile property value (C:\Program Files (x86)\PhysXSDK\Samples\SampleFramework\platform\lib\win64\SamplePlatform-MTDEBUG.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1363,5): warning MSB8012: TargetName(SamplePlatform-MT) does not match the Library's OutputFile property value (SamplePlatform-MTDEBUG). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe /OUT:"./../../lib/win64\SamplePlatform-MTDEBUG.lib" /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win64" /NOLOGO /MACHINE:X64 /MACHINE:X64 "./x64/SamplePlatform-MT/debug\SamplePlatform.obj"
+         "./x64/SamplePlatform-MT/debug\SampleUserInput.obj"
+         "./x64/SamplePlatform-MT/debug\WindowsSamplePlatform.obj"
+         "./x64/SamplePlatform-MT/debug\WindowsSampleUserInput.obj"
+         SamplePlatform-MT.vcxproj -> C:\Program Files (x86)\PhysXSDK\Samples\SampleFramework\platform\compiler\vc9win64public\./../../lib/win64\SamplePlatform-MT.lib
+     1>Done Building Project "C:\Program Files (x86)\PhysXSDK\Samples\SampleFramework\platform\compiler\vc9win64public\SamplePlatform-MT.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:10.63

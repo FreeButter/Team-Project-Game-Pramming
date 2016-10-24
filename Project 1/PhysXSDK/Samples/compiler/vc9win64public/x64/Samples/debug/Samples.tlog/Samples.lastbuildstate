@@ -1,0 +1,2 @@
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v120:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+debug|x64|C:\Program Files (x86)\PhysXSDK\Samples\compiler\vc9win64public\|

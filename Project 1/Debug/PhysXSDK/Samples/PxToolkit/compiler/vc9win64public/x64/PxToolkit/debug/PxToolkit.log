@@ -1,0 +1,25 @@
+﻿Build started 5/10/2016 4:01:17 p.m..
+     1>Project "C:\Program Files (x86)\PhysXSDK\Samples\PxToolkit\compiler\vc9win64public\PxToolkit.vcxproj" on node 4 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I./../../../../Include/foundation /I./../../../../Source/foundation/include /I./../../../../Include/physxprofilesdk /I./../../../../Include/physxvisualdebuggersdk /I./../../include /I./../../../../Include/common /I./../../../../Include/geometry /I./../../../../Include/pvd /I./../../../../Include/particles /I./../../../../Include/cooking /I./../../../../Include/extensions /I./../../../../Include/characterdynamic /I./../../../../Include/vehicle /I./../../../../Include/RepX /I./../../../../Include/RepXUpgrader /I./../../../../Include /I./../../../../Source/GeomUtils/headers /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W3 /WX /Ox /D WIN64 /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _ALLOW_MSC_VER_MISMATCH /D _ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH /D _DEBUG /D PX_CHECKED /D PX_SUPPORT_VISUAL_DEBUGGER /D PX_PHYSX_DLL_NAME_POSTFIX=DEBUG /D _MBCS /GF /Gm- /MTd /GS- /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"./x64/PxToolkit/debug\\" /Fd"./x64/PxToolkit/debug\vc120.pdb" /Gd /TP /errorReport:prompt /MP /Ox ..\..\src\PxTkBmpLoader.cpp ..\..\src\PxTkFPS.cpp ..\..\src\PxTkMatrixUtils.cpp ..\..\src\PxTkRandom.cpp ..\..\src\PxTkRepX.cpp ..\..\src\PxTkStream.cpp
+         PxTkBmpLoader.cpp
+         PxTkFPS.cpp
+         PxTkMatrixUtils.cpp
+         PxTkRandom.cpp
+         PxTkRepX.cpp
+         PxTkStream.cpp
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1361,5): warning MSB8012: TargetPath(C:\Program Files (x86)\PhysXSDK\Samples\PxToolkit\compiler\vc9win64public\./../../lib/win64\PxToolkit.lib) does not match the Library's OutputFile property value (C:\Program Files (x86)\PhysXSDK\Samples\PxToolkit\lib\win64\PxToolkitDEBUG.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1363,5): warning MSB8012: TargetName(PxToolkit) does not match the Library's OutputFile property value (PxToolkitDEBUG). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\Lib.exe /OUT:"./../../lib/win64\PxToolkitDEBUG.lib" /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win64" /NOLOGO /MACHINE:X64 /MACHINE:X64 ./x64/PxToolkit/debug\PxTkBmpLoader.obj
+         ./x64/PxToolkit/debug\PxTkFPS.obj
+         ./x64/PxToolkit/debug\PxTkMatrixUtils.obj
+         ./x64/PxToolkit/debug\PxTkRandom.obj
+         ./x64/PxToolkit/debug\PxTkRepX.obj
+         ./x64/PxToolkit/debug\PxTkStream.obj
+         PxToolkit.vcxproj -> C:\Program Files (x86)\PhysXSDK\Samples\PxToolkit\compiler\vc9win64public\./../../lib/win64\PxToolkit.lib
+     1>Done Building Project "C:\Program Files (x86)\PhysXSDK\Samples\PxToolkit\compiler\vc9win64public\PxToolkit.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:10.47

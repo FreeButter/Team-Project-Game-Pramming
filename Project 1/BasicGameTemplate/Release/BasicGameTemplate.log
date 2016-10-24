@@ -1,0 +1,25 @@
+﻿Build started 23/10/2016 6:25:30 p.m..
+     1>Project "C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\\DirectXTK\Inc" /I"C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\\PhysXSDK\Include" /I"C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\\PhysXSDK\Include\extensions" /I"C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\\PhysXSDK\Include\foundation" /I"C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\\PhysXSDK\Include\common" /I"C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\\rapidjson" /I"C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\\FMOD\inc\\" /I"C:\Program Files (x86)\Visual Leak Detector\include" /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MDd /GS /Gy /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /Yu"pch.h" /Fp"Release\BasicGameTemplate.pch" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ActorData.cpp CapturedInputData.cpp Entity.cpp Game.cpp InputController.cpp Main.cpp ModelController.cpp PhysXController.cpp
+         ActorData.cpp
+     1>C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\PhysXSDK\Include\foundation/PxPreprocessor.h(318): fatal error C1189: #error :  Exactly one of NDEBUG and _DEBUG needs to be defined by preprocessor
+         CapturedInputData.cpp
+     1>c:\users\user\desktop\svn\teams\miguelsonicvivian\project 1\physxsdk\include\foundation/PxPreprocessor.h(318): fatal error C1189: #error :  Exactly one of NDEBUG and _DEBUG needs to be defined by preprocessor
+         Entity.cpp
+     1>c:\users\user\desktop\svn\teams\miguelsonicvivian\project 1\physxsdk\include\foundation/PxPreprocessor.h(318): fatal error C1189: #error :  Exactly one of NDEBUG and _DEBUG needs to be defined by preprocessor
+         Game.cpp
+     1>c:\users\user\desktop\svn\teams\miguelsonicvivian\project 1\physxsdk\include\foundation/PxPreprocessor.h(318): fatal error C1189: #error :  Exactly one of NDEBUG and _DEBUG needs to be defined by preprocessor
+         InputController.cpp
+     1>c:\users\user\desktop\svn\teams\miguelsonicvivian\project 1\physxsdk\include\foundation/PxPreprocessor.h(318): fatal error C1189: #error :  Exactly one of NDEBUG and _DEBUG needs to be defined by preprocessor
+         Main.cpp
+     1>c:\users\user\desktop\svn\teams\miguelsonicvivian\project 1\physxsdk\include\foundation/PxPreprocessor.h(318): fatal error C1189: #error :  Exactly one of NDEBUG and _DEBUG needs to be defined by preprocessor
+         ModelController.cpp
+     1>c:\users\user\desktop\svn\teams\miguelsonicvivian\project 1\physxsdk\include\foundation/PxPreprocessor.h(318): fatal error C1189: #error :  Exactly one of NDEBUG and _DEBUG needs to be defined by preprocessor
+         PhysXController.cpp
+     1>c:\users\user\desktop\svn\teams\miguelsonicvivian\project 1\physxsdk\include\foundation/PxPreprocessor.h(318): fatal error C1189: #error :  Exactly one of NDEBUG and _DEBUG needs to be defined by preprocessor
+     1>Done Building Project "C:\Users\USER\Desktop\SVN\teams\miguelsonicvivian\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.00
