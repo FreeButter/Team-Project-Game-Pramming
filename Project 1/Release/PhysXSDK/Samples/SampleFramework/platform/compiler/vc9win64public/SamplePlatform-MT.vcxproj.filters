@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{1234f662-4c87-4975-bf63-97f3d255bf2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\windows">
+      <UniqueIdentifier>{a9744f8b-bfb3-49b8-a5e0-475f24d33955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{0c263462-3824-4cb3-a349-ae6998cb3425}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\windows">
+      <UniqueIdentifier>{5e0fbf5b-5679-48dc-af04-c41fafef3cbf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\windows\WindowsSamplePlatform.h">
+      <Filter>include\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\windows\WindowsSampleUserInput.h">
+      <Filter>include\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\windows\WindowsSampleUserInputIds.h">
+      <Filter>include\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SamplePlatform.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SampleUserInput.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SampleUserInputIds.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\windows\WindowsSamplePlatform.cpp">
+      <Filter>src\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\windows\WindowsSampleUserInput.cpp">
+      <Filter>src\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SamplePlatform.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SampleUserInput.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
