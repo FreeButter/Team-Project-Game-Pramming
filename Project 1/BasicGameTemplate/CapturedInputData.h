@@ -25,7 +25,6 @@ public:
 	void SetBallShot(bool ball);
 	void SetGameState(std::string state);
 	void SetResetGame(bool reset);
-	void SetBallCharge(float increaseChargeAmount);
 	void SetExitGame(bool exit);
 
 	// Public members variables
@@ -44,8 +43,6 @@ public:
 	physx::PxVec3 ballVector;
 	// Stores vector for which way the ball will be displaced
 	physx::PxVec3 displaceVector;
-	// Stores the float value of the power of the shot
-	float m_ballCharge;
 	// Stores a flag for exiting the game
 	bool m_exitGame;
 };

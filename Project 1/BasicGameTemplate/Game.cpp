@@ -253,14 +253,11 @@ void Game::Update(DX::StepTimer const& timer)
 				// Put catched input into physx controller and update the entities position in the world
 				m_physXController->StepPhysX(time, e->m_capturedInput->entityVector, e->GetDynamic());
 
-
 				// Update the models
 				m_modelController->Update(e);
 
 				if (e->m_capturedInput->m_ballShot == true)
 				{
-					
-					
 					if (m_ballVector.size() < e->m_ballLimit)
 					{
 						SpawnBall(e);
@@ -323,11 +320,9 @@ void Game::Update(DX::StepTimer const& timer)
 					}
 				}
 
+				// TODO: fix iterator deletion issue - miguel
 				// Recreate the ball object reference for simulation
 				std::shared_ptr<Entity> ball2 = *m_ballIt;
-
-				// Update Input Data Object
-				m_inputController->UpdateCatchInput(ball2, elapsedTime, m_camera, m_gameState);
 
 				// Put catched input into physx controller and update the entities position in the world
 				m_physXController->StepPhysX(time, ball2->m_capturedInput->entityVector, ball2->GetDynamic());

@@ -15,8 +15,6 @@ InputController::InputController()
 {
 	m_debugMode = false;
 	m_keyboardMode = false;
-	m_ballshot_p1 = false;
-	m_ballshot_p2 = false;
 	m_gameState = "MENU";
 }
 
@@ -62,14 +60,12 @@ float elapsedTime, std::shared_ptr<Camera> camera, int gamestate)
 		m_gameState = "LOST";
 	}
 
-
 	// Set Variables Here
 	SimpleMath::Vector3 move = SimpleMath::Vector3::Zero;
 	resetGame = false;
 	
 	// init tracker for mouse and keyboard
 	/*std::unique_ptr<Keyboard::KeyboardStateTracker> tracker(new Keyboard::KeyboardStateTracker);*/
-	auto mouse = m_mouse->GetState();
 	auto kb = m_keyboard->GetState();
 	m_keyboardTracker->Update(kb);
 
@@ -208,8 +204,8 @@ float elapsedTime, std::shared_ptr<Camera> camera, int gamestate)
 			m_ballshot_p2 = false;
 		}else{
 		// Delligate update logic for each player
-			MovementControlP1(state, e);
-			MovementControlP2(state2, e);
+			MovementControlP1(state, kb, e);
+			MovementControlP2(state2, kb, e);
 
 			if (e->m_name == "player1"){
 				if (e->IsCollided() == true)
@@ -250,82 +246,75 @@ float elapsedTime, std::shared_ptr<Camera> camera, int gamestate)
 
 /**
 * Keyboard Movement used to control both players at once
-
-*
 */
-void InputController::MovementKeyboard(Keyboard::State kb, std::shared_ptr<Entity> e)
-{
-	if (kb.IsKeyDown(Keyboard::D))
-	{
-		velX = -1.5f;
-	}
-	else if (kb.IsKeyUp(Keyboard::D) || kb.IsKeyUp(Keyboard::A))
-	{
-		velX = 0.0f;
-	}
-
-	if (kb.IsKeyDown(Keyboard::A))
-	{
-		velX = 1.5f;
-	}
-
-	if (kb.IsKeyDown(Keyboard::W))
-	{
-		velZ = 1.5f;
-	}
-	else if (kb.IsKeyUp(Keyboard::W) || kb.IsKeyUp(Keyboard::A))
-	{
-		velZ = 0.0f;
-	}
-
-	if (kb.IsKeyDown(Keyboard::S))
-	{
-		velZ = -1.5f;
-	}
-
-	if (kb.IsKeyDown(Keyboard::Space) && velY <= 0.0f)
-	{
-		velY = 1.5f;
-	}
-	else if (kb.IsKeyUp(Keyboard::Space))
-	{
-		velY = 0.0f;
-	}
-
-	if (m_keyboardTracker->IsKeyPressed(Keyboard::Y))
-	{
-		m_ballshot_p1 = true;
-		m_ballshot_p2 = true;
-	}
-	if (m_keyboardTracker->IsKeyReleased(Keyboard::Y))
-	{
-		m_ballshot_p1 = false;
-		m_ballshot_p2 = false;
-	}
-
-	physx::PxVec3 entityVector = physx::PxVec3(velX, velY, velZ);
-	
-	// Set Values in the capturedInputData Object for the entity
-	e->m_capturedInput->SetEntityVector(entityVector);
-	e->m_capturedInput->SetBallShot(m_ballshot_p1);
-	e->m_capturedInput->SetBallShot(m_ballshot_p2);
-
-	if (e->m_name == "dodgeball")
-	{
-		e->m_capturedInput->SetEntityVector(physx::PxVec3(0, 0, 0));
-	}
-}
+//void InputController::MovementKeyboard(Keyboard::State kb, std::shared_ptr<Entity> e)
+//{
+//	if (kb.IsKeyDown(Keyboard::D))
+//	{
+//		velX = -1.5f;
+//	}
+//		else if (kb.IsKeyUp(Keyboard::D) || kb.IsKeyUp(Keyboard::A))
+//		{
+//			velX = 0.0f;
+//		}
+//	if (kb.IsKeyDown(Keyboard::A))
+//	{
+//		velX = 1.5f;
+//	}
+//
+//	if (kb.IsKeyDown(Keyboard::W))
+//	{
+//		velZ = 1.5f;
+//	}
+//		else if (kb.IsKeyUp(Keyboard::W) || kb.IsKeyUp(Keyboard::A))
+//		{
+//			velZ = 0.0f;
+//		}
+//
+//	if (kb.IsKeyDown(Keyboard::S))
+//	{
+//		velZ = -1.5f;
+//	}
+//
+//	if (kb.IsKeyDown(Keyboard::Space) && velY <= 0.0f)
+//	{
+//		velY = 1.5f;
+//	}
+//		else if (kb.IsKeyUp(Keyboard::Space))
+//		{
+//			velY = 0.0f;
+//		}
+//
+//	if (m_keyboardTracker->IsKeyPressed(Keyboard::Y))
+//	{
+//		m_ballshot_p1 = true;
+//		m_ballshot_p2 = true;
+//	}
+//	if (m_keyboardTracker->IsKeyReleased(Keyboard::Y))
+//	{
+//		m_ballshot_p1 = false;
+//		m_ballshot_p2 = false;
+//	}
+//
+//	physx::PxVec3 entityVector = physx::PxVec3(velX, velY, velZ);
+//	
+//	// Set Values in the capturedInputData Object for the entity
+//	if (e->m_name == "player1")
+//	{
+//		e->m_capturedInput->SetEntityVector(entityVector);
+//		e->m_capturedInput->SetBallShot(m_ballshot_p2);
+//		e->m_capturedInput->SetBallShotVector(physx::PxVec3(30,0,0));
+//		e->m_capturedInput->SetBallShotDisplacementVector(physx::PxVec3(2, 0, 0));
+//		//e->m_capturedInput->SetBallShot(m_ballshot_p2);
+//	}
+//}
 
 void
-InputController::MovementControlP1(GamePad::State state, std::shared_ptr<Entity> e)
+InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std::shared_ptr<Entity> e)
 {
 	if (e->m_name == "player1"){
-		// Get power of the current ball shot
-		float ballShotPower = e->m_capturedInput->m_ballCharge;
+		// Chooses which controller to vibrate
 		int controller = 0;
-		//auto controller2 = m_gamePad->GetState(1);
-		if (state.IsConnected())// || controller2.IsConnected())
-		{
 			if (state.IsViewPressed()) //|| controller2.IsViewPressed())
 			{
 				e->m_capturedInput->SetExitGame(true);
@@ -342,21 +331,12 @@ InputController::MovementControlP1(GamePad::State state, std::shared_ptr<Entity>
 			
 			if (m_buttons_p1.rightTrigger == GamePad::ButtonStateTracker::PRESSED)
 			{
-				//m_ballshot_p1 = true;
-				// increase ball charge
-				ballShotPower += CHARGE_UP;
-				e->m_capturedInput->SetBallCharge(ballShotPower);
-
-			}
-
-			if (m_buttons_p1.rightTrigger == GamePad::ButtonStateTracker::RELEASED)
-			{
 				m_ballshot_p1 = true;
 				if (state.thumbSticks.rightX >= -0.2 && state.thumbSticks.rightX <= 0.2 && state.thumbSticks.rightY >= -0.2 && state.thumbSticks.rightY <= 0.2)
 				{
 					m_ballshot_p1 = false;
 				}
-				e->m_capturedInput->SetBallCharge(0);
+				//e->m_capturedInput->SetBallCharge(0);
 				// get Angle from right thumb stick
 				float xStick = state.thumbSticks.rightX;
 				float yStick = state.thumbSticks.rightY;
@@ -366,39 +346,42 @@ InputController::MovementControlP1(GamePad::State state, std::shared_ptr<Entity>
 				linearBallX = (RIGHT_SHOOT*xStick);
 			}
 			
-
-			if (state.IsDPadDownPressed() || state.IsLeftThumbStickDown())
+			// Controls Z Movement
+			if (state.IsDPadDownPressed() || state.IsLeftThumbStickDown() || kb.IsKeyDown(Keyboard::S))
 			{
 				velZ = -0.7f;
 			}
-			else{
-				velZ = 0.0f;
-			}
-			if (state.IsDPadUpPressed() || state.IsLeftThumbStickUp())
+				else
+				{
+					velZ = 0.0f;
+				}
+			if (state.IsDPadUpPressed() || state.IsLeftThumbStickUp() || kb.IsKeyDown(Keyboard::W))
 			{
 				velZ = +0.7f;
 			}
-			if (state.IsDPadLeftPressed() || state.IsLeftThumbStickLeft())
+
+			// Controls Horizontal Movement
+			if (state.IsDPadLeftPressed() || state.IsLeftThumbStickLeft() || kb.IsKeyDown(Keyboard::A))
 			{
 				velX = 0.7f;
 			}
-			else{
-				velX = 0.0f;
-			}
-			if (state.IsDPadRightPressed() || state.IsLeftThumbStickRight())
+				else
+				{
+					velX = 0.0f;
+				}
+			if (state.IsDPadRightPressed() || state.IsLeftThumbStickRight() || kb.IsKeyDown(Keyboard::D))
 			{
 				velX = -0.7f;
 			}
-			if (state.IsAPressed() && velY <= 0.0f)
+
+			// Does Jumping
+			if (state.IsAPressed() && e->GetDynamic()->getGlobalPose().p.y <= 0.7f || kb.IsKeyDown(Keyboard::Space) && e->GetDynamic()->getGlobalPose().p.y <= 0.7f)
 			{
-				if (e->GetDynamic()->getGlobalPose().p.y <= 0.7f)
 				velY = 4.5f;
 			}
 			else{
 				velY = 0;
 			}
-
-
 
 			// Ball Shooting
 			// Down Stick
@@ -443,17 +426,15 @@ InputController::MovementControlP1(GamePad::State state, std::shared_ptr<Entity>
 			}
 
 		}
-	}
+	//}
 }
 
 void 
-InputController::MovementControlP2(GamePad::State state2, std::shared_ptr<Entity> e)
+InputController::MovementControlP2(GamePad::State state2, Keyboard::State kb, std::shared_ptr<Entity> e)
 {
 	if (e->m_name == "player2"){
 		int controller = 1;
 		//auto controller2 = m_gamePad->GetState(1);
-		if (state2.IsConnected())// || controller2.IsConnected())
-		{
 			if (state2.IsViewPressed()) //|| controller2.IsViewPressed())
 			{
 				e->m_capturedInput->SetExitGame(true);
@@ -474,29 +455,31 @@ InputController::MovementControlP2(GamePad::State state2, std::shared_ptr<Entity
 					m_ballshot_p2 = false;
 				}
 			}
-			if (state2.IsDPadDownPressed() || state2.IsLeftThumbStickDown())
+			if (state2.IsDPadDownPressed() || state2.IsLeftThumbStickDown() || kb.IsKeyDown(Keyboard::Down))
 			{
 				velZ = -0.7f;
 			}
 			else{
 				velZ = 0.0f;
 			}
-			if (state2.IsDPadUpPressed() || state2.IsLeftThumbStickUp())
+			if (state2.IsDPadUpPressed() || state2.IsLeftThumbStickUp() || kb.IsKeyDown(Keyboard::Up))
 			{
 				velZ = +0.7f;
 			}
-			if (state2.IsDPadLeftPressed() || state2.IsLeftThumbStickLeft())
+			if (state2.IsDPadLeftPressed() || state2.IsLeftThumbStickLeft() || kb.IsKeyDown(Keyboard::Left))
 			{
 				velX = 0.7f;
 			}
 			else{
 				velX = 0.0f;
 			}
-			if (state2.IsDPadRightPressed() || state2.IsLeftThumbStickRight())
+			if (state2.IsDPadRightPressed() || state2.IsLeftThumbStickRight() || kb.IsKeyDown(Keyboard::Right))
 			{
 				velX = -0.7f;
 			}
-			if (state2.IsAPressed() && e->GetDynamic()->getGlobalPose().p.y <= 0.7f)
+		
+			// Does 2nd Place Jumping
+			if (state2.IsAPressed() && e->GetDynamic()->getGlobalPose().p.y <= 0.7f || kb.IsKeyDown(Keyboard::RightControl) && e->GetDynamic()->getGlobalPose().p.y <= 0.7f)
 			{
 				velY = 4.5f;
 			}
@@ -541,7 +524,8 @@ InputController::MovementControlP2(GamePad::State state2, std::shared_ptr<Entity
 			physx::PxVec3 ballVector = physx::PxVec3(linearBallX, 0, linearBallZ);
 			physx::PxVec3 ballDisplacementVector = physx::PxVec3(displaceX, 0, displaceZ);
 
-			if (e->m_name == "player2"){
+			if (e->m_name == "player2")
+				{
 				// Set Values in the capturedInputData Object for the entity
 				e->m_capturedInput->SetEntityVector(entityVector);
 				e->m_capturedInput->SetBallShot(m_ballshot_p2);
@@ -550,7 +534,6 @@ InputController::MovementControlP2(GamePad::State state2, std::shared_ptr<Entity
 				m_ballshot_p2 = false;
 			}
 		}
-	}
 }
 
 void

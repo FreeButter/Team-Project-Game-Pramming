@@ -31,8 +31,8 @@ public: // Public Function Definitions
 		std::shared_ptr<Camera> camera, int gamestate);
 
 	void MovementKeyboard(Keyboard::State kb, std::shared_ptr<Entity> e);
-	void MovementControlP1(GamePad::State state, std::shared_ptr<Entity> e);
-	void MovementControlP2(GamePad::State state2, std::shared_ptr<Entity> e);
+	void MovementControlP1(GamePad::State state, Keyboard::State kb, std::shared_ptr<Entity> e);
+	void MovementControlP2(GamePad::State state2, Keyboard::State kb, std::shared_ptr<Entity> e);
 
 	// Updates camera position
 	void UpdateCameraObject(std::shared_ptr<Camera> camera);

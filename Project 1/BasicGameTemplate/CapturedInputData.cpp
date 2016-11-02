@@ -20,7 +20,7 @@ CapturedInputData::CapturedInputData(float x, float y, float z)
 	m_gameState = "MENU";
 	m_resetGame = false;
 	m_exitGame = false;
-	m_ballCharge = 0;
+	m_ballShot = false;
 }
 
 CapturedInputData::~CapturedInputData()
@@ -69,12 +69,6 @@ CapturedInputData::SetResetGame(bool reset)
 {
 	if (reset == true)
 		m_resetGame = reset;
-}
-
-void 
-CapturedInputData::SetBallCharge(float increaseChargeAmount)
-{
-	m_ballCharge = increaseChargeAmount;
 }
 
 void
