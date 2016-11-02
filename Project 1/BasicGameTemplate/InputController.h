@@ -30,7 +30,7 @@ public: // Public Function Definitions
 	void UpdateCatchInput(std::shared_ptr<Entity> e, float elapsedTime,
 		std::shared_ptr<Camera> camera, int gamestate);
 
-	void MovementKeyboard(Keyboard::State kb, std::shared_ptr<Entity> e);
+	//void MovementKeyboard(Keyboard::State kb, std::shared_ptr<Entity> e);
 	void MovementControlP1(GamePad::State state, Keyboard::State kb, std::shared_ptr<Entity> e);
 	void MovementControlP2(GamePad::State state2, Keyboard::State kb, std::shared_ptr<Entity> e);
 

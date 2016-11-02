@@ -199,7 +199,7 @@ float elapsedTime, std::shared_ptr<Camera> camera, int gamestate)
 
 		// Keyboard Movement DEBUG - MUST COMMENT OUT BOTH PLAYER MOVEMENT METHODS TO USE
 		if (m_keyboardMode){
-			MovementKeyboard(kb, e);
+			//MovementKeyboard(kb, e);
 			m_ballshot_p1 = false;
 			m_ballshot_p2 = false;
 		}else{
@@ -329,7 +329,7 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 				m_gamePad->SetVibration(controller, 0, 0);
 			}
 			
-			if (m_buttons_p1.rightTrigger == GamePad::ButtonStateTracker::PRESSED)
+			if (m_buttons_p1.rightTrigger == GamePad::ButtonStateTracker::PRESSED || m_keyboardTracker->IsKeyReleased(Keyboard::B))
 			{
 				m_ballshot_p1 = true;
 				if (state.thumbSticks.rightX >= -0.2 && state.thumbSticks.rightX <= 0.2 && state.thumbSticks.rightY >= -0.2 && state.thumbSticks.rightY <= 0.2)
@@ -344,6 +344,9 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 				// Set linear velocity by angle
 				linearBallZ = (DOWN_SHOOT*-yStick);
 				linearBallX = (RIGHT_SHOOT*xStick);
+
+				// Debug
+				m_ballshot_p1 = true;
 			}
 			
 			// Controls Z Movement
@@ -447,6 +450,8 @@ InputController::MovementControlP2(GamePad::State state2, Keyboard::State kb, st
 			{
 				m_gamePad->SetVibration(controller, 0, 0);
 			}
+
+			// TODO: TODO: TODO: figure out how to get tracker for keyboard to shoot the ball
 			if (m_buttons_p2.rightTrigger == GamePad::ButtonStateTracker::PRESSED)
 			{
 				m_ballshot_p2 = true;
@@ -454,6 +459,9 @@ InputController::MovementControlP2(GamePad::State state2, Keyboard::State kb, st
 				{
 					m_ballshot_p2 = false;
 				}
+				// Debug
+				m_ballshot_p2 = true;
+
 			}
 			if (state2.IsDPadDownPressed() || state2.IsLeftThumbStickDown() || kb.IsKeyDown(Keyboard::Down))
 			{
