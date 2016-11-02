@@ -29,7 +29,7 @@ public:
 	void Init(const Value& json);
 
 	//Initializes the dodgeball
-	void InitBall(const Value& jason, std::shared_ptr<Entity> player);
+	void InitBall(const Value& json, std::shared_ptr<Entity> player);
 	// TODO: change place of radius
 
 	// Proccess the state of the Entity at any time
@@ -95,6 +95,9 @@ public:
 	DirectX::SimpleMath::Matrix matrix;
 	// Stores the input from the entity
 	std::shared_ptr<CapturedInputData> m_capturedInput;
+	// Keyboard controls
+	std::vector<DirectX::Keyboard::Keys> m_controls;
+
 
 
 

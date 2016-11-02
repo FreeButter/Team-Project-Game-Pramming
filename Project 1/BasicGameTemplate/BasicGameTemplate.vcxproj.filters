@@ -35,6 +35,12 @@
     <Filter Include="Header Files\Dependency">
       <UniqueIdentifier>{333c285a-54ce-4d0f-96a1-821f9c1ed128}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{6f7edc52-c407-4cf4-908b-a99dc5ddb547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{5223db74-3b0f-47a7-8a9a-5237b0754f51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PxAllocatorCallback.h">
@@ -88,6 +94,9 @@
     <ClInclude Include="SoundController.h">
       <Filter>Header Files\Controller</Filter>
     </ClInclude>
+    <ClInclude Include="InputMapper.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ModelController.cpp">
@@ -137,6 +146,9 @@
     </ClCompile>
     <ClCompile Include="SoundController.cpp">
       <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="InputMapper.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

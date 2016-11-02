@@ -164,6 +164,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InputController.h" />
+    <ClInclude Include="InputMapper.h" />
     <ClInclude Include="ModelData.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="PxAllocatorCallback.h" />
@@ -183,6 +184,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InputController.cpp" />
+    <ClCompile Include="InputMapper.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModelController.cpp" />
     <ClCompile Include="ModelData.cpp" />

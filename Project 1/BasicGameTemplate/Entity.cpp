@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Entity.h"
 #include "CapturedInputData.h"
+#include "InputMapper.h"
 
 
 Entity::Entity()
@@ -19,6 +20,9 @@ Entity::~Entity()
 void
 Entity::Init(const Value& json)
 {
+	// Input Mapper Object
+	InputMapper input = InputMapper();
+
 	// Set alive
 	m_dead = json["entity_data"]["is_dead"].GetBool();
 
@@ -74,6 +78,10 @@ Entity::Init(const Value& json)
 	// Set input data to null
 	m_capturedInput = std::shared_ptr<CapturedInputData>(new CapturedInputData(0, 0, 0));
 
+	// Setup control scheme
+	m_controls = std::vector<DirectX::Keyboard::Keys>();
+
+	m_controls = input.MapKeys(json);
 }
 
 void
