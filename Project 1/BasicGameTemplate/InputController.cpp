@@ -1,9 +1,9 @@
-/**
+/*
 DogeyBalls
 InputController.cpp
 Purpose: Controls and routes commands from an IO device
 
-@author Miguel Saavedra & Vivian Ngo
+@author Everyone
 @version 1.0 13/10/16
 */
 #include "pch.h"
@@ -118,7 +118,7 @@ float elapsedTime, std::shared_ptr<Camera> camera, int gamestate)
 		}
 
 		//Set continue game if Y pressed
-		if (state.IsYPressed() || state2.IsYPressed())
+		if (state.IsYPressed() || state2.IsYPressed() ||kb.IsKeyDown(Keyboard::Y))
 		{
 			m_gamePad->SetVibration(0, 0.f, 0.f);
 			m_gamePad->SetVibration(1, 0.f, 0.f);
@@ -429,7 +429,6 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 			}
 
 		}
-	//}
 }
 
 void 

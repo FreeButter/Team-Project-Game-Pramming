@@ -1,4 +1,4 @@
-﻿Build started 2/11/2016 6:43:07 p.m..
+﻿Build started 2/11/2016 6:57:37 p.m..
      1>Project "C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\BasicGameTemplate\BasicGameTemplate.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\DirectXTK\Inc" /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\PhysXSDK\Include" /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\PhysXSDK\Include\extensions" /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\PhysXSDK\Include\foundation" /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\PhysXSDK\Include\common" /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\rapidjson" /I"C:\Users\USER\Documents\GitHub\Team-Project-GP\Project 1\\FMOD\inc\\" /I"C:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MD /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /GR /Yu"pch.h" /Fp"Debug\BasicGameTemplate.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt InputController.cpp
@@ -32,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.40
+Time Elapsed 00:00:01.68
