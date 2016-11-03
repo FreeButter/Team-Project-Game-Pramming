@@ -272,7 +272,7 @@ void Game::Update(DX::StepTimer const& timer)
 				// Init Entities Within the game
 				std::shared_ptr<Entity> ball = *m_ballIt;
 
-				if (ball->isDead(m_time))
+				if (ball->isExpired(m_time))
 				{
 					// Release the ball
 					m_ballIt = ReleaseBall(m_ballIt);

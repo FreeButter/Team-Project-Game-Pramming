@@ -28,14 +28,11 @@ public:
 	// Initialie the basic entity object
 	void Init(const Value& json);
 
-	//Initializes the dodgeball
+	// Initializes the dodgeball
 	void InitBall(const Value& json, std::shared_ptr<Entity> player);
 	// TODO: change place of radius
 
-	// Proccess the state of the Entity at any time
-	// during the game
-	void Process(float deltaTime);
-
+	// Determines whether the entity is dead or not
 	void SetDead(bool dead);
 	bool IsDead() const;
 
@@ -45,13 +42,21 @@ public:
 	physx::PxRigidActor* GetActor();
 	void SetActor(physx::PxRigidActor* newActor);
 	void SetDynamic(physx::PxRigidDynamic* newDynamic);
+
+	// The lives display of each entity
 	int GetPlayerLives();
 	void RemoveLife(float time);
+
+	// Invincibility of player after being hit
 	bool GetInvincibility();
 	float SetCurrentlyInvincible(float time, float m_timeHit);
 	void UpdateInvincibilityStatus(float time);
+
+	// Collision Dectection Code
 	bool IsCollided();
 	void SetCollided(bool collide);
+
+	// Winner display at end of game screen
 	void SetWinner(std::string player);
 	std::string GetWinner();
 
@@ -60,7 +65,7 @@ public:
 
 	// Check if Dead according to life time and returns if entity
 	// is dead
-	boolean isDead(float lifeTime);
+	bool isExpired(float lifeTime);
 
 	// Set TOB time of birth
 	void setTimeOfBirth(float TOB);

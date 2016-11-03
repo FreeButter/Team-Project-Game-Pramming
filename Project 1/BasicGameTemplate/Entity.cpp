@@ -14,9 +14,6 @@ Entity::~Entity()
 	
 }
 
-//
-//std::string name, const char modelFileLoc,
-//float x, float y, float z, int type, float radius
 void
 Entity::Init(const Value& json)
 {
@@ -98,19 +95,6 @@ Entity::InitBall(const Value& json, std::shared_ptr<Entity> player)
 	if (type == "ball")
 		entityType = ball;
 
-	// Physx variable initialization
-	// Position
-	//float positionX = player->GetDynamic()->getGlobalPose().p.x + json["physx_data"]["spawn_displacement"][0].GetFloat();
-	//float positionY = player->GetDynamic()->getGlobalPose().p.y + json["physx_data"]["spawn_displacement"][1].GetFloat();
-	//float positionZ = player->GetDynamic()->getGlobalPose().p.z + json["physx_data"]["spawn_displacement"][2].GetFloat();
-
-	// Velocity
-	//float velocityX = json["physx_data"]["linear_velocity"][0].GetFloat();
-	//float velocityY = json["physx_data"]["linear_velocity"][1].GetFloat();
-	//float velocityZ = json["physx_data"]["linear_velocity"][2].GetFloat();
-
-
-
 	float positionX = player->GetDynamic()->getGlobalPose().p.x + player->m_capturedInput->displaceVector.x;
 	float positionY = player->GetDynamic()->getGlobalPose().p.y + player->m_capturedInput->displaceVector.y;
 	float positionZ = player->GetDynamic()->getGlobalPose().p.z + player->m_capturedInput->displaceVector.z;
@@ -132,18 +116,6 @@ Entity::InitBall(const Value& json, std::shared_ptr<Entity> player)
 	// Set input data to null
 	m_capturedInput = std::shared_ptr<CapturedInputData>(new CapturedInputData(0, 0, 0));
 
-}
-
-void
-Entity::Process(float deltaTime)
-{
-	// is hit?
-
-	//boundaries
-
-	// update position variables of entity
-
-	// set updated position of model
 }
 
 void
@@ -189,8 +161,8 @@ Entity::release()
 	dynamic->release();
 }
 
-boolean 
-Entity::isDead(float lifeTime)
+bool
+Entity::isExpired(float lifeTime)
 {
 	// Check life time is over
 	if ((lifeTime - m_lifeTime) >= MAX_LIFE_TIME)
