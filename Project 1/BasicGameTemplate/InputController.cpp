@@ -357,7 +357,7 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 
 		// Controls Z Movement
 		// Currently uses vector with directx 11 key mapping
-		if (state.IsDPadDownPressed() || state.IsLeftThumbStickDown() || kb.IsKeyDown(e->m_controls[0]))
+		if (state.IsDPadDownPressed() || state.IsLeftThumbStickDown() || kb.IsKeyDown(e->m_controls[2]))
 		{
 			velZ = -0.7f;
 		}
@@ -365,13 +365,13 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 		{
 			velZ = 0.0f;
 		}
-		if (state.IsDPadUpPressed() || state.IsLeftThumbStickUp() || kb.IsKeyDown(Keyboard::S))
+		if (state.IsDPadUpPressed() || state.IsLeftThumbStickUp() || kb.IsKeyDown(e->m_controls[0]))
 		{
 			velZ = +0.7f;
 		}
 
 		// Controls Horizontal Movement
-		if (state.IsDPadLeftPressed() || state.IsLeftThumbStickLeft() || kb.IsKeyDown(Keyboard::A))
+		if (state.IsDPadLeftPressed() || state.IsLeftThumbStickLeft() || kb.IsKeyDown(e->m_controls[1]))
 		{
 			velX = 0.7f;
 		}
@@ -379,7 +379,7 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 		{
 			velX = 0.0f;
 		}
-		if (state.IsDPadRightPressed() || state.IsLeftThumbStickRight() || kb.IsKeyDown(Keyboard::D))
+		if (state.IsDPadRightPressed() || state.IsLeftThumbStickRight() || kb.IsKeyDown(e->m_controls[3]))
 		{
 			velX = -0.7f;
 		}

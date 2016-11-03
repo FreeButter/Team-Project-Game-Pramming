@@ -20,13 +20,10 @@
             "model_loc": "none"
         },
         "control_scheme": {
-            "UP": "w",
-            "DOWN": "s",
-            "LEFT": "a",
-            "RIGHT": "d",
+            "DIRECTIONS": [ "w", "a", "s", "d" ],
             "SHOOT": "f",
             "JUMP": "space",
-            "RESET" :  "r" 
+            "RESET": "r"
         }
     },
     "entity2": {
@@ -34,8 +31,8 @@
             "name": "player2",
             "type": "box",
             "is_dead": false,
-			"lives": 3,
-			"invincible": 2
+            "lives": 3,
+            "invincible": 2
         },
         "physx_data": {
             "type": "box",
@@ -50,13 +47,14 @@
             "model_loc": "none"
         },
         "control_scheme": {
+            "DIRECTIONS" : ["up","left","down","right"], 
             "UP": "up",
             "DOWN": "down",
             "LEFT": "left",
             "RIGHT": "right",
             "SHOOT": "numpad_2",
             "JUMP": "numpad_1",
-            "RESET" :  "r" 
+            "RESET": "r"
         }
     },
     "ball_test_entityA": {
