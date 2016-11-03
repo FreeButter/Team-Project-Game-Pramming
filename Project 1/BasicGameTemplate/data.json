@@ -20,7 +20,7 @@
             "model_loc": "none"
         },
         "control_scheme": {
-            "DIRECTIONS": [ "w", "a", "s", "d" ],
+            "DIRECTIONS": [ "w", "a", "s", "d", "f", "space"],
             "SHOOT": "f",
             "JUMP": "space",
             "RESET": "r"
@@ -47,11 +47,7 @@
             "model_loc": "none"
         },
         "control_scheme": {
-            "DIRECTIONS" : ["up","left","down","right"], 
-            "UP": "up",
-            "DOWN": "down",
-            "LEFT": "left",
-            "RIGHT": "right",
+            "DIRECTIONS" : ["up","left","down","right", "numpad_2", "numpad_1"], 
             "SHOOT": "numpad_2",
             "JUMP": "numpad_1",
             "RESET": "r"

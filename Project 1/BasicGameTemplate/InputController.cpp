@@ -200,15 +200,11 @@ float elapsedTime, std::shared_ptr<Camera> camera, int gamestate)
 		// Keyboard Movement DEBUG - MUST COMMENT OUT BOTH PLAYER MOVEMENT METHODS TO USE
 		if (m_keyboardMode){
 			//MovementKeyboard(kb, e);
-			m_ballshot_p1 = false;
+			ballshot = false;
 			m_ballshot_p2 = false;
 		}else{
 		// Delligate update logic for each player
-			if (e->m_name == "player1")
-				MovementControlP1(state, kb, e);
-			else
-				MovementControlP1(state, kb, e);
-			//MovementControlP2(state2, kb, e);
+			MovementControlP1(state, kb, e);
 
 			if (e->m_name == "player1"){
 				if (e->IsCollided() == true)
@@ -290,12 +286,12 @@ float elapsedTime, std::shared_ptr<Camera> camera, int gamestate)
 //
 //	if (m_keyboardTracker->IsKeyPressed(Keyboard::Y))
 //	{
-//		m_ballshot_p1 = true;
+//		ballshot = true;
 //		m_ballshot_p2 = true;
 //	}
 //	if (m_keyboardTracker->IsKeyReleased(Keyboard::Y))
 //	{
-//		m_ballshot_p1 = false;
+//		ballshot = false;
 //		m_ballshot_p2 = false;
 //	}
 //
@@ -335,12 +331,12 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 			m_gamePad->SetVibration(controller, 0, 0);
 		}
 
-		if (m_buttons_p1.rightTrigger == GamePad::ButtonStateTracker::PRESSED || m_keyboardTracker->IsKeyReleased(Keyboard::B))
+		if (m_buttons_p1.rightTrigger == GamePad::ButtonStateTracker::PRESSED || m_keyboardTracker->IsKeyPressed(e->m_controls[4]))
 		{
-			m_ballshot_p1 = true;
+			ballshot = true;
 			if (state.thumbSticks.rightX >= -0.2 && state.thumbSticks.rightX <= 0.2 && state.thumbSticks.rightY >= -0.2 && state.thumbSticks.rightY <= 0.2)
 			{
-				m_ballshot_p1 = false;
+				ballshot = false;
 			}
 			//e->m_capturedInput->SetBallCharge(0);
 			// get Angle from right thumb stick
@@ -352,7 +348,27 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 			linearBallX = (RIGHT_SHOOT*xStick);
 
 			// Debug
-			m_ballshot_p1 = true;
+			ballshot = true;
+		}
+
+		if (m_buttons_p1.rightTrigger == GamePad::ButtonStateTracker::PRESSED || m_keyboardTracker->IsKeyPressed(e->m_controls[4]))
+		{
+			ballshot = true;
+			if (state.thumbSticks.rightX >= -0.2 && state.thumbSticks.rightX <= 0.2 && state.thumbSticks.rightY >= -0.2 && state.thumbSticks.rightY <= 0.2)
+			{
+				ballshot = false;
+			}
+			//e->m_capturedInput->SetBallCharge(0);
+			// get Angle from right thumb stick
+			float xStick = state.thumbSticks.rightX;
+			float yStick = state.thumbSticks.rightY;
+
+			// Set linear velocity by angle
+			linearBallZ = (DOWN_SHOOT*-yStick);
+			linearBallX = (RIGHT_SHOOT*xStick);
+
+			// Debug
+			ballshot = true;
 		}
 
 		// Controls Z Movement
@@ -385,7 +401,7 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 		}
 
 		// Does Jumping
-		if (state.IsAPressed() && e->GetDynamic()->getGlobalPose().p.y <= 0.7f || kb.IsKeyDown(Keyboard::Space) && e->GetDynamic()->getGlobalPose().p.y <= 0.7f)
+		if (state.IsAPressed() && e->GetDynamic()->getGlobalPose().p.y <= 0.7f || kb.IsKeyDown(e->m_controls[5]) && e->GetDynamic()->getGlobalPose().p.y <= 0.7f)
 		{
 			velY = 4.5f;
 		}
@@ -428,122 +444,122 @@ InputController::MovementControlP1(GamePad::State state, Keyboard::State kb, std
 
 		// Set Values in the capturedInputData Object for the entity
 		e->m_capturedInput->SetEntityVector(entityVector);
-		e->m_capturedInput->SetBallShot(m_ballshot_p1);
+		e->m_capturedInput->SetBallShot(ballshot);
 		e->m_capturedInput->SetBallShotVector(ballVector);
 		e->m_capturedInput->SetBallShotDisplacementVector(ballDisplacementVector);
-		m_ballshot_p1 = false;
+		ballshot = false;
 	
 }
 
-void 
-InputController::MovementControlP2(GamePad::State state2, Keyboard::State kb, std::shared_ptr<Entity> e)
-{
-		int controller = 1;
-		//auto controller2 = m_gamePad->GetState(1);
-			if (state2.IsViewPressed()) //|| controller2.IsViewPressed())
-			{
-				e->m_capturedInput->SetExitGame(true);
-			}
-			if (m_buttons_p2.leftShoulder)
-			{
-				m_gamePad->SetVibration(controller, 0.25f, 0.25f);
-			}
-			if (m_buttons_p2.rightShoulder)
-			{
-				m_gamePad->SetVibration(controller, 0, 0);
-			}
-
-			// TODO: TODO: TODO: figure out how to get tracker for keyboard to shoot the ball
- 			if (m_buttons_p2.rightTrigger == GamePad::ButtonStateTracker::PRESSED || m_keyboardTracker->IsKeyReleased(Keyboard::N))
-			{
-				m_ballshot_p2 = true;
-				if (state2.thumbSticks.rightX >= -0.2 && state2.thumbSticks.rightX <= 0.2 && state2.thumbSticks.rightY >= -0.2 && state2.thumbSticks.rightY <= 0.2)
-				{
-					m_ballshot_p2 = false;
-				}
-				// Debug
-				m_ballshot_p2 = true;
-
-			}
-			if (state2.IsDPadDownPressed() || state2.IsLeftThumbStickDown() || kb.IsKeyDown(Keyboard::Down))
-			{
-				velZ = -0.7f;
-			}
-			else{
-				velZ = 0.0f;
-			}
-			if (state2.IsDPadUpPressed() || state2.IsLeftThumbStickUp() || kb.IsKeyDown(Keyboard::Up))
-			{
-				velZ = +0.7f;
-			}
-			if (state2.IsDPadLeftPressed() || state2.IsLeftThumbStickLeft() || kb.IsKeyDown(Keyboard::Left))
-			{
-				velX = 0.7f;
-			}
-			else{
-				velX = 0.0f;
-			}
-			if (state2.IsDPadRightPressed() || state2.IsLeftThumbStickRight() || kb.IsKeyDown(Keyboard::Right))
-			{
-				velX = -0.7f;
-			}
-		
-			// Does 2nd Place Jumping
-			if (state2.IsAPressed() && e->GetDynamic()->getGlobalPose().p.y <= 0.7f || kb.IsKeyDown(Keyboard::RightControl) && e->GetDynamic()->getGlobalPose().p.y <= 0.7f)
-			{
-				velY = 4.5f;
-			}
-			else{
-				velY = 0;
-			}
-
-			// get Angle from right thumb stick
-			float xStick = state2.thumbSticks.rightX;
-			float yStick = state2.thumbSticks.rightY;
-
-			// Set linear velocity by angle
-			linearBallZ = DOWN_SHOOT*-yStick;
-			linearBallX = RIGHT_SHOOT*xStick;
-
-
-			// Ball Shooting
-			// Down Stick
-			if (state2.IsRightThumbStickDown())
-			{
-				displaceZ = -BALL_DISPLACEMENT;
-			}
-			// Right Stick
-			if (state2.IsRightThumbStickRight())
-			{
-				displaceX = -BALL_DISPLACEMENT;
-			}
-			// Left Stick
-			if (state2.IsRightThumbStickLeft())
-			{
-				displaceX = BALL_DISPLACEMENT;
-			}
-			// Up Stick
-			if (state2.IsRightThumbStickUp())
-			{
-				displaceZ = BALL_DISPLACEMENT;
-			}
-
-			m_buttons_p2.Update(state2);
-			// Create vector to store movement of the entity
-			physx::PxVec3 entityVector = physx::PxVec3(velX, velY, velZ);
-			physx::PxVec3 ballVector = physx::PxVec3(linearBallX, 0, linearBallZ);
-			physx::PxVec3 ballDisplacementVector = physx::PxVec3(displaceX, 0, displaceZ);
-
-			
-				// Set Values in the capturedInputData Object for the entity
-				e->m_capturedInput->SetEntityVector(entityVector);
-				e->m_capturedInput->SetBallShot(m_ballshot_p2);
-				e->m_capturedInput->SetBallShotVector(ballVector);
-				e->m_capturedInput->SetBallShotDisplacementVector(ballDisplacementVector);
-				m_ballshot_p2 = false;
-			
-
-}
+//void 
+//InputController::MovementControlP2(GamePad::State state2, Keyboard::State kb, std::shared_ptr<Entity> e)
+//{
+//		int controller = 1;
+//		//auto controller2 = m_gamePad->GetState(1);
+//			if (state2.IsViewPressed()) //|| controller2.IsViewPressed())
+//			{
+//				e->m_capturedInput->SetExitGame(true);
+//			}
+//			if (m_buttons_p2.leftShoulder)
+//			{
+//				m_gamePad->SetVibration(controller, 0.25f, 0.25f);
+//			}
+//			if (m_buttons_p2.rightShoulder)
+//			{
+//				m_gamePad->SetVibration(controller, 0, 0);
+//			}
+//
+//			// TODO: TODO: TODO: figure out how to get tracker for keyboard to shoot the ball
+//			if (m_buttons_p2.rightTrigger == GamePad::ButtonStateTracker::PRESSED || m_keyboardTracker->IsKeyPressed(e->m_controls[4]))
+//			{
+//				m_ballshot_p2 = true;
+//				if (state2.thumbSticks.rightX >= -0.2 && state2.thumbSticks.rightX <= 0.2 && state2.thumbSticks.rightY >= -0.2 && state2.thumbSticks.rightY <= 0.2)
+//				{
+//					m_ballshot_p2 = false;
+//				}
+//				// Debug
+//				m_ballshot_p2 = true;
+//
+//			}
+//			if (state2.IsDPadDownPressed() || state2.IsLeftThumbStickDown() || kb.IsKeyDown(Keyboard::Down))
+//			{
+//				velZ = -0.7f;
+//			}
+//			else{
+//				velZ = 0.0f;
+//			}
+//			if (state2.IsDPadUpPressed() || state2.IsLeftThumbStickUp() || kb.IsKeyDown(Keyboard::Up))
+//			{
+//				velZ = +0.7f;
+//			}
+//			if (state2.IsDPadLeftPressed() || state2.IsLeftThumbStickLeft() || kb.IsKeyDown(Keyboard::Left))
+//			{
+//				velX = 0.7f;
+//			}
+//			else{
+//				velX = 0.0f;
+//			}
+//			if (state2.IsDPadRightPressed() || state2.IsLeftThumbStickRight() || kb.IsKeyDown(Keyboard::Right))
+//			{
+//				velX = -0.7f;
+//			}
+//		
+//			// Does 2nd Place Jumping
+//			if (state2.IsAPressed() && e->GetDynamic()->getGlobalPose().p.y <= 0.7f || kb.IsKeyDown(e->m_controls[5]) && e->GetDynamic()->getGlobalPose().p.y <= 0.7f)
+//			{
+//				velY = 4.5f;
+//			}
+//			else{
+//				velY = 0;
+//			}
+//
+//			// get Angle from right thumb stick
+//			float xStick = state2.thumbSticks.rightX;
+//			float yStick = state2.thumbSticks.rightY;
+//
+//			// Set linear velocity by angle
+//			linearBallZ = DOWN_SHOOT*-yStick;
+//			linearBallX = RIGHT_SHOOT*xStick;
+//
+//
+//			// Ball Shooting
+//			// Down Stick
+//			if (state2.IsRightThumbStickDown())
+//			{
+//				displaceZ = -BALL_DISPLACEMENT;
+//			}
+//			// Right Stick
+//			if (state2.IsRightThumbStickRight())
+//			{
+//				displaceX = -BALL_DISPLACEMENT;
+//			}
+//			// Left Stick
+//			if (state2.IsRightThumbStickLeft())
+//			{
+//				displaceX = BALL_DISPLACEMENT;
+//			}
+//			// Up Stick
+//			if (state2.IsRightThumbStickUp())
+//			{
+//				displaceZ = BALL_DISPLACEMENT;
+//			}
+//
+//			m_buttons_p2.Update(state2);
+//			// Create vector to store movement of the entity
+//			physx::PxVec3 entityVector = physx::PxVec3(velX, velY, velZ);
+//			physx::PxVec3 ballVector = physx::PxVec3(linearBallX, 0, linearBallZ);
+//			physx::PxVec3 ballDisplacementVector = physx::PxVec3(displaceX, 0, displaceZ);
+//
+//			
+//				// Set Values in the capturedInputData Object for the entity
+//				e->m_capturedInput->SetEntityVector(entityVector);
+//				e->m_capturedInput->SetBallShot(m_ballshot_p2);
+//				e->m_capturedInput->SetBallShotVector(ballVector);
+//				e->m_capturedInput->SetBallShotDisplacementVector(ballDisplacementVector);
+//				m_ballshot_p2 = false;
+//			
+//
+//}
 
 void
 InputController::UpdateCameraObject(std::shared_ptr<Camera> camera)

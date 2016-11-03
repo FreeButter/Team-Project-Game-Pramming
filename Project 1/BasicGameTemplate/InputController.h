@@ -70,7 +70,7 @@ public: // Public Member Definitions
 	bool resetGame;
 
 	// m_ballshot flag;
-	bool m_ballshot_p1;
+	bool ballshot;
 	bool m_ballshot_p2;
 
 	// m_gameState flag
